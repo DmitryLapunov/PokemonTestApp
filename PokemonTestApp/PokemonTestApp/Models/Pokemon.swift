@@ -33,7 +33,11 @@ struct Pokemon: Decodable {
 
 extension Pokemon {
     var id: String {
-        let urlContracted = String(String(url.dropFirst(34)).dropLast())
-        return urlContracted
+        var pokemonId = ""
+        let urlContracted = UrlFormatter.getPathLastComponent(url: url)
+        if let urlContracted = urlContracted {
+            pokemonId = urlContracted
+        }
+        return pokemonId
     }
 }

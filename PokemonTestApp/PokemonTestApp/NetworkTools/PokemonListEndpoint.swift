@@ -37,18 +37,24 @@ class PokemonListEndpoint: EndpointProtocol {
         self.init(url: URL(string: "https://pokeapi.co/api/v2/pokemon")!,
                   method: .get,
                   path: "",
+                  parameters: [String: Any](),
                   encoding: URLEncoding.queryString,
                   nextPagePath: nextPagePath)
     }
     
     func setEndpoint() -> EndpointProtocol {
-        var path: String = ""
+        var parameters: [String: Any] = [String: Any]()
         if let nextPage = nextPagePath, !nextPage.isEmpty {
-            path = nextPage
+            let offset = UrlFormatter.getQueryStringParameter(url: nextPage, parameter: "offset")
+            if let offset = offset {
+                parameters = ["offset": "\(offset)",
+                              "limit": "20"]
+            }
         }
         return PokemonListEndpoint(url: url,
                                    method: method,
                                    path: path,
+                                   parameters: parameters,
                                    encoding: encoding)
     }
 }
