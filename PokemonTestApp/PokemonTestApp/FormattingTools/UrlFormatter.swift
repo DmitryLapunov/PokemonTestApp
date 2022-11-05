@@ -15,7 +15,8 @@ class UrlFormatter {
     
     static func getPathLastComponent(url: String) -> String? {
         guard let _ = URL(string: url) else { return nil }
-        let lastComponent = url.components(separatedBy: "/").last
+        let contractedUrl = url.dropLast()
+        let lastComponent = contractedUrl.components(separatedBy: "/").last
         return lastComponent
     }
 }

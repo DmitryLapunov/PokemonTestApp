@@ -64,8 +64,8 @@ class PokemonListCell: UICollectionViewCell {
         
         arrowImageView.snp.makeConstraints {
             $0.centerY.equalToSuperview()
-            $0.width.equalTo(25)
-            $0.height.equalTo(25)
+            $0.width.equalTo(20)
+            $0.height.equalTo(20)
             $0.trailing.equalToSuperview().inset(8)
         }
     }

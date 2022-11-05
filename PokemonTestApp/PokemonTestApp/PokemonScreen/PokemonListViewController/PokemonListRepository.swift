@@ -32,8 +32,8 @@ class PokemonListRepository: PokemonListRepositoryProtocol {
         }
     }
     
-    func preparePokemonListRequest(nextPagePath: String, handler: @escaping (Result<Pokemons, Error>) -> Void) {
+    private func preparePokemonListRequest(nextPagePath: String, handler: @escaping (Result<Pokemons, Error>) -> Void) {
         let endpoint = PokemonListEndpoint(nextPagePath: nextPagePath)
-        networkManager.sendRequest(endpoint: endpoint, then: handler)
+        networkManager.sendRequest(endpoint: endpoint.setEndpoint(), then: handler)
     }
 }
