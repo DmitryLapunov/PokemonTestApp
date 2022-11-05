@@ -11,7 +11,7 @@ struct Pokemons: Decodable {
     let count: Int
     var next: String?
     var previous: String?
-    var results: [Pokemon]?
+    let results: [Pokemon]
     
     enum CodingKeys: String, CodingKey {
         case count
