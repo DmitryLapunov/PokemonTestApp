@@ -11,4 +11,8 @@ struct Images {
     struct PokemonListCell {
         public static let chevronRight = UIImage(systemName: "chevron.right")
     }
+    
+    struct PokemonDetailsView {
+        public static let placeholderImage = UIImage(systemName: "questionmark")
+    }
 }

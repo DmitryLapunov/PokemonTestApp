@@ -35,6 +35,8 @@ extension PokemonListViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+        let pokemonDetailsBuilder = PokemonDetailsBuilder()
+        let pokemonDetailsViewController = pokemonDetailsBuilder.build(pokemonId: pokemons[indexPath.row].id)
+        navigationController?.pushViewController(pokemonDetailsViewController, animated: true)
     }
 }
