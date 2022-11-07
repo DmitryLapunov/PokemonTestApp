@@ -13,6 +13,11 @@ class PokemonListCell: UICollectionViewCell {
     
     static let reuseIdentifier = "PokemonListCell"
     
+    private let cellBackgroundView = UIView().then {
+        $0.clipsToBounds = true
+        $0.backgroundColor = Colors.PokemonListCell.cellBackground
+    }
+    
     private let pokemonLabel = UILabel().then {
         $0.font = Fonts.PokemonListCell.pokemonName
         $0.textColor = Colors.PokemonListCell.pokemonName
@@ -36,8 +41,6 @@ class PokemonListCell: UICollectionViewCell {
     }
     
     private func setupView() {
-        self.backgroundColor = Colors.PokemonListCell.cellBackground
-        
         self.contentView.layer.cornerRadius = 8
         self.contentView.layer.borderWidth = 1
         self.contentView.layer.borderColor = Colors.PokemonListCell.cellBorder
@@ -52,11 +55,16 @@ class PokemonListCell: UICollectionViewCell {
     }
     
     private func setupSubviews() {
+        contentView.addSubview(cellBackgroundView)
         contentView.addSubview(pokemonLabel)
         contentView.addSubview(arrowImageView)
     }
     
     private func setConstraints() {
+        cellBackgroundView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
+        
         pokemonLabel.snp.makeConstraints {
             $0.centerY.equalToSuperview()
             $0.leading.equalToSuperview().offset(8)
