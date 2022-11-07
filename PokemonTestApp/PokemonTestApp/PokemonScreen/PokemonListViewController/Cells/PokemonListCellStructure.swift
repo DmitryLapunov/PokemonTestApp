@@ -24,7 +24,7 @@ struct PokemonListCellStructure {
     let id: String
     
     init(pokemon: Pokemon) {
-        self.name = pokemon.name
+        self.name = pokemon.displayName
         self.id = pokemon.id
     }
 }

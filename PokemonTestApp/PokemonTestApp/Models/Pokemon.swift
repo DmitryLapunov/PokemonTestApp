@@ -40,4 +40,8 @@ extension Pokemon {
         }
         return pokemonId
     }
+    
+    var displayName: String {
+        return name.formatNetworkOutput()
+    }
 }

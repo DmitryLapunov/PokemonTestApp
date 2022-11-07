@@ -16,7 +16,7 @@ class PokemonListPresenter: PokemonListPresenterProtocol {
     weak var view: PokemonListViewProtocol?
     private let repository: PokemonListRepositoryProtocol
     private var nextPagePath = ""
-    private var page = 1
+    private var page = 0
     private var totalPages = 0
     private var isLoadingContent = false
     
@@ -27,7 +27,7 @@ class PokemonListPresenter: PokemonListPresenterProtocol {
     
     func loadPokemonData() {
         guard !isLoadingContent else { return }
-        if page != 1 {
+        if page != 0 {
             guard page < totalPages else {
                 return
             }
@@ -39,7 +39,7 @@ class PokemonListPresenter: PokemonListPresenterProtocol {
             switch result {
             case .success(let pokemonData):
                 self.totalPages = Int(pokemonData.count / 20) + 1
-                if self.page == 1 {
+                if self.page == 0 {
                     self.view?.presentPokemonData(pokemons: pokemonData.pokemons)
                     self.isLoadingContent = false
                 } else {
