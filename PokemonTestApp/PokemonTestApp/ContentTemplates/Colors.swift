@@ -26,4 +26,9 @@ struct Colors {
         public static let pokemonName = UIColor.black
         public static let pokemonDetails = UIColor.black
     }
+    
+    struct NavigationBar {
+        public static let background = UIColor(red: 239/255, green: 83/255, blue: 80/255, alpha: 1.0)
+        public static let tint = UIColor.white
+    }
 }
