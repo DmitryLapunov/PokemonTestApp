@@ -13,7 +13,7 @@ struct PokemonDetailsStructure {
     let imageUrl: String
     let height: Int
     let weight: Double
-    let types: String
+    let types: [String]
     
     init(pokemonDetails: PokemonDetails) {
         self.id = pokemonDetails.id
@@ -21,6 +21,6 @@ struct PokemonDetailsStructure {
         self.imageUrl = pokemonDetails.pokemonImageUrl
         self.height = pokemonDetails.heightInCm
         self.weight = pokemonDetails.weightInKg
-        self.types = pokemonDetails.typesString
+        self.types = pokemonDetails.typesArray
     }
 }

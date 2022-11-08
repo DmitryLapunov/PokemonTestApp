@@ -18,6 +18,18 @@ class PokemonListCell: UICollectionViewCell {
         $0.backgroundColor = Colors.PokemonListCell.cellBackground
     }
     
+    private let pokeballOutlineImageview = UIImageView().then {
+        $0.contentMode = .scaleAspectFill
+        $0.image = Images.PokemonListCell.pokeballOutline
+        $0.alpha = 0.1
+        $0.clipsToBounds = true
+    }
+    
+    private let pokeballIconImageView = UIImageView().then {
+        $0.contentMode = .scaleAspectFill
+        $0.image = Images.PokemonListCell.pokeballIcon
+    }
+    
     private let pokemonLabel = UILabel().then {
         $0.font = Fonts.PokemonListCell.pokemonName
         $0.textColor = Colors.PokemonListCell.pokemonName
@@ -56,6 +68,8 @@ class PokemonListCell: UICollectionViewCell {
     
     private func setupSubviews() {
         contentView.addSubview(cellBackgroundView)
+        contentView.addSubview(pokeballOutlineImageview)
+        contentView.addSubview(pokeballIconImageView)
         contentView.addSubview(pokemonLabel)
         contentView.addSubview(arrowImageView)
     }
@@ -65,16 +79,30 @@ class PokemonListCell: UICollectionViewCell {
             $0.edges.equalToSuperview()
         }
         
+        pokeballOutlineImageview.snp.makeConstraints {
+            $0.top.equalToSuperview()
+            $0.trailing.equalToSuperview()
+            $0.bottom.equalToSuperview()
+            $0.width.equalTo(90)
+        }
+        
+        pokeballIconImageView.snp.makeConstraints {
+            $0.centerY.equalToSuperview()
+            $0.width.equalTo(16)
+            $0.height.equalTo(16)
+            $0.leading.equalToSuperview().offset(8)
+        }
+        
         pokemonLabel.snp.makeConstraints {
             $0.centerY.equalToSuperview()
-            $0.leading.equalToSuperview().offset(8)
+            $0.leading.equalToSuperview().offset(32)
         }
         
         arrowImageView.snp.makeConstraints {
             $0.centerY.equalToSuperview()
-            $0.width.equalTo(20)
-            $0.height.equalTo(20)
-            $0.trailing.equalToSuperview().inset(8)
+            $0.width.equalTo(15)
+            $0.height.equalTo(15)
+            $0.trailing.equalToSuperview().inset(12)
         }
     }
     

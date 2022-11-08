@@ -66,10 +66,7 @@ extension PokemonDetails {
         return Double(weight / 10)
     }
     
-    var typesString: String {
-        guard types.count > 1 else {
-            return types[0].type.name.capitalized
-        }
-        return types.map({ $0.type.name.capitalized }).joined(separator: ", ")
+    var typesArray: [String] {
+        return types.map { $0.type.name }
     }
 }

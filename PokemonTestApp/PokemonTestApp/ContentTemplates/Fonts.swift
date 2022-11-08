@@ -14,6 +14,7 @@ struct Fonts {
     
     struct PokemonDetailsView {
         public static let pokemonName = UIFont.systemFont(ofSize: 20, weight: .bold)
-        public static let pokemonDetails = UIFont.systemFont(ofSize: 18, weight: .regular)
+        public static let pokemonId = UIFont.systemFont(ofSize: 16, weight: .regular)
+        public static let pokemonDetails = UIFont.systemFont(ofSize: 18, weight: .semibold)
     }
 }
