@@ -25,6 +25,7 @@ class PokemonListView: UIView {
     
     lazy var collectionView: UICollectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout).then {
         $0.register(PokemonListCell.self, forCellWithReuseIdentifier: PokemonListCell.reuseIdentifier)
+        $0.register(PokemonListShimmerCell.self, forCellWithReuseIdentifier: PokemonListShimmerCell.reuseIdentifier)
         $0.showsVerticalScrollIndicator = false
         $0.contentInset = UIEdgeInsets(top: 8, left: 16, bottom: 8, right: 16)
         $0.refreshControl = refreshControl

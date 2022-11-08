@@ -44,6 +44,7 @@
 		89CA435D2919E21900CD865A /* CustomToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CA435C2919E21900CD865A /* CustomToast.swift */; };
 		89CA43602919E57200CD865A /* ToastManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CA435F2919E57200CD865A /* ToastManager.swift */; };
 		89CA43622919F68F00CD865A /* PokemonListViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CA43612919F68F00CD865A /* PokemonListViewDelegate.swift */; };
+		89CA4364291A0B4800CD865A /* PokemonListShimmerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CA4363291A0B4800CD865A /* PokemonListShimmerCell.swift */; };
 		FE81D6DB08E9F922BEA5E3B5 /* Pods_PokemonTestApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E129D7140F3D153BD18727E0 /* Pods_PokemonTestApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -87,6 +88,7 @@
 		89CA435C2919E21900CD865A /* CustomToast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomToast.swift; sourceTree = "<group>"; };
 		89CA435F2919E57200CD865A /* ToastManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastManager.swift; sourceTree = "<group>"; };
 		89CA43612919F68F00CD865A /* PokemonListViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonListViewDelegate.swift; sourceTree = "<group>"; };
+		89CA4363291A0B4800CD865A /* PokemonListShimmerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonListShimmerCell.swift; sourceTree = "<group>"; };
 		A10C0C162C5737653CA69B0B /* Pods-PokemonTestApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokemonTestApp.release.xcconfig"; path = "Target Support Files/Pods-PokemonTestApp/Pods-PokemonTestApp.release.xcconfig"; sourceTree = "<group>"; };
 		E129D7140F3D153BD18727E0 /* Pods_PokemonTestApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PokemonTestApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E548DEE7CA66163A11345577 /* Pods-PokemonTestApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokemonTestApp.debug.xcconfig"; path = "Target Support Files/Pods-PokemonTestApp/Pods-PokemonTestApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -209,8 +211,9 @@
 		89CA43212915F9A700CD865A /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				89CA43222915FA9900CD865A /* PokemonListCell.swift */,
 				89CA432B291604A100CD865A /* PokemonListCellStructure.swift */,
+				89CA43222915FA9900CD865A /* PokemonListCell.swift */,
+				89CA4363291A0B4800CD865A /* PokemonListShimmerCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -423,6 +426,7 @@
 				89CA434F2919844600CD865A /* PokemonDetailsPresenter.swift in Sources */,
 				89CA435A2919CEF700CD865A /* PokemonOfficialTypesEnum.swift in Sources */,
 				89CA43262915FD2200CD865A /* Fonts.swift in Sources */,
+				89CA4364291A0B4800CD865A /* PokemonListShimmerCell.swift in Sources */,
 				89CA433329167B2000CD865A /* PokemonListViewController.swift in Sources */,
 				89CA433929168DA700CD865A /* PokemonListView.swift in Sources */,
 				89CA434529196CB700CD865A /* PokemonDetailsEndpoint.swift in Sources */,

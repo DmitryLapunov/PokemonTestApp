@@ -11,6 +11,9 @@ class PokemonListViewController: UIViewController {
     
     var presenter: PokemonListPresenterProtocol!
     var pokemons: [PokemonListCellStructure] = []
+    var isShimmerRequested: Bool {
+        return pokemons.count > 0 ? false : true
+    }
     
     var controllerView: PokemonListView {
         return (self.view as! PokemonListView)
