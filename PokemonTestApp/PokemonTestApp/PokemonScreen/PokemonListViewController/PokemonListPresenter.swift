@@ -65,6 +65,7 @@ class PokemonListPresenter: PokemonListPresenterProtocol {
         page = 0
         totalPages = 0
         isLoadingContent = false
+        repository.wipeCachedPokemons()
         view?.wipeOutdatedPokemonData()
         loadPokemonData()
     }

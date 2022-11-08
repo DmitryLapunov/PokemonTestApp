@@ -17,6 +17,12 @@ struct PokemonListCellStructures {
         self.count = pokemons.count
         self.next = pokemons.next ?? ""
     }
+    
+    init(pokemons: [PokemonListCellStructure], count: Int, next: String) {
+        self.pokemons = pokemons
+        self.count = count
+        self.next = next
+    }
 }
 
 struct PokemonListCellStructure {
