@@ -9,5 +9,6 @@ target 'PokemonTestApp' do
   pod 'Kingfisher'
   pod 'Then'
   pod 'Alamofire'
+  pod 'SwiftEntryKit', '2.0.0'
 
 end

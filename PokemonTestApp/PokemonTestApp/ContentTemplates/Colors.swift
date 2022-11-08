@@ -54,4 +54,10 @@ struct Colors {
         public static let ground = UIColor(red: 217/255, green: 119/255, blue: 70/255, alpha: 1.0)
         public static let fairy = UIColor(red: 236/255, green: 143/255, blue: 230/255, alpha: 1.0)
     }
+    
+    struct CustomToast {
+        public static let error = UIColor.red
+        public static let lightError = UIColor(red: 255/255, green: 223/255, blue: 229/255, alpha: 1.0)
+        public static let white = UIColor.white
+    }
 }

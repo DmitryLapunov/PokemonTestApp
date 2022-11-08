@@ -16,6 +16,7 @@ class PokemonDetailsPresenter: PokemonDetailsPresenterProtocol {
     weak var view: PokemonDetailsViewProtocol?
     private let repository: PokemonDetailsRepositoryProtocol
     private let pokemonId: String
+    private let toastManager: ToastManagerProtocol = ToastManager()
     
     init(view: PokemonDetailsViewProtocol,
          repository: PokemonDetailsRepositoryProtocol = PokemonDetailsRepository(),
@@ -32,7 +33,7 @@ class PokemonDetailsPresenter: PokemonDetailsPresenterProtocol {
             case .success(let pokemonDetailsStructure):
                 self.view?.presentPokemonDetails(pokemonDetailsStructure: pokemonDetailsStructure)
             case .failure(let error):
-                print(error.localizedDescription)
+                self.toastManager.displayToast(toastMessage: error.localizedDescription)
             }
         }
     }

@@ -19,4 +19,8 @@ struct Images {
         public static let scalemass = UIImage(systemName: "scalemass")
         public static let pencilAndRuler = UIImage(systemName: "pencil.and.ruler")
     }
+    
+    struct CustomToast {
+        public static let error = UIImage(systemName: "xmark")
+    }
 }

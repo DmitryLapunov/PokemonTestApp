@@ -17,4 +17,8 @@ struct Fonts {
         public static let pokemonId = UIFont.systemFont(ofSize: 16, weight: .regular)
         public static let pokemonDetails = UIFont.systemFont(ofSize: 18, weight: .semibold)
     }
+    
+    struct CustomToast {
+        public static let label = UIFont.systemFont(ofSize: 16, weight: .regular)
+    }
 }
