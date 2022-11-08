@@ -9,6 +9,7 @@ import Foundation
 
 protocol PokemonListPresenterProtocol: AnyObject {
     func loadPokemonData()
+    func reloadPokemonData()
 }
 
 class PokemonListPresenter: PokemonListPresenterProtocol {
@@ -40,6 +41,7 @@ class PokemonListPresenter: PokemonListPresenterProtocol {
             switch result {
             case .success(let pokemonData):
                 self.totalPages = Int(pokemonData.count / 20) + 1
+                self.view?.stopRefreshing()
                 if self.page == 0 {
                     self.view?.presentPokemonData(pokemons: pokemonData.pokemons)
                     self.isLoadingContent = false
@@ -52,8 +54,18 @@ class PokemonListPresenter: PokemonListPresenterProtocol {
                 }
                 self.page += 1
             case .failure(let error):
+                self.view?.stopRefreshing()
                 self.toastManager.displayToast(toastMessage: error.localizedDescription)
             }
         }
+    }
+    
+    func reloadPokemonData() {
+        nextPagePath = ""
+        page = 0
+        totalPages = 0
+        isLoadingContent = false
+        view?.wipeOutdatedPokemonData()
+        loadPokemonData()
     }
 }

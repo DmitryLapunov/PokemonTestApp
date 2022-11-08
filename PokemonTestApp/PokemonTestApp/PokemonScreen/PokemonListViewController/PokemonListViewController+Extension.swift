@@ -10,6 +10,8 @@ import Foundation
 protocol PokemonListViewProtocol: AnyObject {
     func presentPokemonData(pokemons: [PokemonListCellStructure])
     func continueLoadingData(pokemons: [PokemonListCellStructure])
+    func wipeOutdatedPokemonData()
+    func stopRefreshing()
 }
 
 extension PokemonListViewController: PokemonListViewProtocol {
@@ -25,5 +27,13 @@ extension PokemonListViewController: PokemonListViewProtocol {
                 controllerView.collectionView.insertItems(at: [IndexPath(item: self.pokemons.count - 1, section: 0)])
             }
         }
+    }
+    
+    func wipeOutdatedPokemonData() {
+        self.pokemons = []
+    }
+    
+    func stopRefreshing() {
+        controllerView.stopRefreshing()
     }
 }

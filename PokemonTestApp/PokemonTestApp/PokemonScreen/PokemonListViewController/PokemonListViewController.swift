@@ -38,5 +38,6 @@ class PokemonListViewController: UIViewController {
     private func setupView() {
         controllerView.collectionView.delegate = self
         controllerView.collectionView.dataSource = self
+        controllerView.pokemonListViewDelegate = self
     }
 }
