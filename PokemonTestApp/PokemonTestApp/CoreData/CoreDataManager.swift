@@ -9,8 +9,8 @@ import Foundation
 import CoreData
 
 protocol CoreDataManagerProtocol: AnyObject {
-    func readPokemonData(dataCategory: String) -> [Pokemon]
-    func savePokemonData(pokemon: Pokemon, dataCategory: String)
+    func readPokemonData(dataCategory: String) -> [PokemonModel]
+    func savePokemonData(pokemon: PokemonModel, dataCategory: String)
     func deletePokemonData(dataCategory: String)
 }
 
@@ -27,15 +27,15 @@ class CoreDataManager: CoreDataManagerProtocol {
     
     private let toastManager: ToastManagerProtocol = ToastManager()
     
-    func readPokemonData(dataCategory: String) -> [Pokemon] {
+    func readPokemonData(dataCategory: String) -> [PokemonModel] {
         let managedContext = persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "CachedPokemonListing")
         fetchRequest.predicate = NSPredicate(format: "dataCategory = %@", dataCategory)
-        var pokemons: [Pokemon] = []
+        var pokemons: [PokemonModel] = []
         do {
             let fetchedPokemons = try managedContext.fetch(fetchRequest)
             pokemons = fetchedPokemons.map {
-                Pokemon(name: $0.value(forKey: "name") as! String,
+                PokemonModel(name: $0.value(forKey: "name") as! String,
                         url: $0.value(forKey: "url") as! String) }
         } catch let error {
             toastManager.displayToast(toastMessage: error.localizedDescription)
@@ -43,7 +43,7 @@ class CoreDataManager: CoreDataManagerProtocol {
         return pokemons
     }
     
-    func savePokemonData(pokemon: Pokemon, dataCategory: String) {
+    func savePokemonData(pokemon: PokemonModel, dataCategory: String) {
         let managedContext = persistentContainer.viewContext
         let entity = NSEntityDescription.entity(forEntityName: "CachedPokemonListing", in: managedContext)!
         let pokemonEntity = NSManagedObject(entity: entity, insertInto: managedContext)

@@ -49,12 +49,12 @@ class PokemonListRepository: PokemonListRepositoryProtocol {
         }
     }
     
-    private func preparePokemonListRequest(nextPagePath: String, handler: @escaping (Result<Pokemons, Error>) -> Void) {
+    private func preparePokemonListRequest(nextPagePath: String, handler: @escaping (Result<PokemonsModel, Error>) -> Void) {
         let endpoint = PokemonListEndpoint(nextPagePath: nextPagePath)
         networkManager.sendRequest(endpoint: endpoint.setEndpoint(), then: handler)
     }
     
-    private func updateCachedPokemons(dataCategory: String, pokemons: [Pokemon]) {
+    private func updateCachedPokemons(dataCategory: String, pokemons: [PokemonModel]) {
         wipeCachedPokemons()
         pokemons.forEach {
             coreDataManager.savePokemonData(pokemon: $0, dataCategory: dataCategory)

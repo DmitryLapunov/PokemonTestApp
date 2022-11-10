@@ -16,9 +16,10 @@ class NavBarFormatter {
         navigationBarAppearance.backgroundImage = UIImage(named: "pokemon_logo")
         navigationBarAppearance.backgroundImageContentMode = .bottom
         
-        UINavigationBar.appearance().standardAppearance = navigationBarAppearance
-        UINavigationBar.appearance().compactAppearance = navigationBarAppearance
-        UINavigationBar.appearance().scrollEdgeAppearance = navigationBarAppearance
-        UINavigationBar.appearance().tintColor = Colors.NavigationBar.tint
+        let navigationAppearance = UINavigationBar.appearance()
+        navigationAppearance.standardAppearance = navigationBarAppearance
+        navigationAppearance.compactAppearance = navigationBarAppearance
+        navigationAppearance.scrollEdgeAppearance = navigationBarAppearance
+        navigationAppearance.tintColor = Colors.NavigationBar.tint
     }
 }

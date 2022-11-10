@@ -7,11 +7,11 @@
 
 import Foundation
 
-struct Pokemons: Decodable {
+struct PokemonsModel: Decodable {
     let count: Int
     var next: String?
     var previous: String?
-    let results: [Pokemon]
+    let results: [PokemonModel]
     
     enum CodingKeys: String, CodingKey {
         case count
@@ -21,7 +21,7 @@ struct Pokemons: Decodable {
     }
 }
 
-struct Pokemon: Decodable {
+struct PokemonModel: Decodable {
     let name: String
     let url: String
     
@@ -36,7 +36,7 @@ struct Pokemon: Decodable {
     }
 }
 
-extension Pokemon {
+extension PokemonModel {
     var id: String {
         var pokemonId = ""
         let urlContracted = UrlFormatter.getPathLastComponent(url: url)

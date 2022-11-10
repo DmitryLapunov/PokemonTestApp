@@ -15,7 +15,7 @@ struct PokemonDetailsStructure {
     let weight: Double
     let types: [String]
     
-    init(pokemonDetails: PokemonDetails) {
+    init(pokemonDetails: PokemonDetailsModel) {
         self.id = pokemonDetails.id
         self.name = pokemonDetails.displayName
         self.imageUrl = pokemonDetails.pokemonImageUrl

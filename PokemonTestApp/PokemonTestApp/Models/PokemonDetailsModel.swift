@@ -7,11 +7,11 @@
 
 import Foundation
 
-struct PokemonDetails: Decodable {
+struct PokemonDetailsModel: Decodable {
     let id: Int
     let name: String
-    let sprites: PokemonSprites
-    let types: [PokemonTypeDetails]
+    let sprites: PokemonSpritesModel
+    let types: [PokemonTypeDetailsModel]
     let height: Int
     let weight: Int
     
@@ -25,7 +25,7 @@ struct PokemonDetails: Decodable {
     }
 }
 
-struct PokemonSprites: Decodable {
+struct PokemonSpritesModel: Decodable {
     let frontDefault: String
     
     enum CodingKeys: String, CodingKey {
@@ -33,15 +33,15 @@ struct PokemonSprites: Decodable {
     }
 }
 
-struct PokemonTypeDetails: Decodable {
-    let type: PokemonType
+struct PokemonTypeDetailsModel: Decodable {
+    let type: PokemonTypeModel
     
     enum CodingKeys: String, CodingKey {
         case type
     }
 }
 
-struct PokemonType: Decodable {
+struct PokemonTypeModel: Decodable {
     let name: String
     
     enum CodingKeys: String, CodingKey {
@@ -49,7 +49,7 @@ struct PokemonType: Decodable {
     }
 }
 
-extension PokemonDetails {
+extension PokemonDetailsModel {
     var displayName: String {
         return name.formatNetworkOutput()
     }

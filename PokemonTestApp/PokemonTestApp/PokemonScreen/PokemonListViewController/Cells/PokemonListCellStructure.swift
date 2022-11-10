@@ -12,7 +12,7 @@ struct PokemonListCellStructures {
     let count: Int
     let next: String
     
-    init(pokemons: Pokemons) {
+    init(pokemons: PokemonsModel) {
         self.pokemons = pokemons.results.map { PokemonListCellStructure(pokemon: $0) }
         self.count = pokemons.count
         self.next = pokemons.next ?? ""
@@ -29,7 +29,7 @@ struct PokemonListCellStructure {
     let name: String
     let id: String
     
-    init(pokemon: Pokemon) {
+    init(pokemon: PokemonModel) {
         self.name = pokemon.displayName
         self.id = pokemon.id
     }

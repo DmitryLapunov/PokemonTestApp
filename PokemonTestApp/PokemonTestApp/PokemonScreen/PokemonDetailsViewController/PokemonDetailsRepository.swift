@@ -32,7 +32,7 @@ class PokemonDetailsRepository: PokemonDetailsRepositoryProtocol {
         }
     }
     
-    func preparePokemonDetailsRequest(pokemonId: String, handler: @escaping (Result<PokemonDetails, Error>) -> Void) {
+    func preparePokemonDetailsRequest(pokemonId: String, handler: @escaping (Result<PokemonDetailsModel, Error>) -> Void) {
         let endpoint = PokemonDetailsEndpoint(pokemonId: pokemonId)
         networkManager.sendRequest(endpoint: endpoint.setEndpoint(), then: handler)
     }
