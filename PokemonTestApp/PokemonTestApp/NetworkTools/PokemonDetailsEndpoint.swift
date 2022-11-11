@@ -34,7 +34,7 @@ class PokemonDetailsEndpoint: EndpointProtocol {
     }
     
     convenience init(pokemonId: String) {
-        self.init(url: URL(string: "https://pokeapi.co/api/v2/pokemon")!,
+        self.init(url: URL(string: Contents.Networking.pokemonApiUrl)!,
                   method: .get,
                   path: "",
                   encoding: URLEncoding.queryString,

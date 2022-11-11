@@ -7,8 +7,12 @@
 
 import Foundation
 
-struct Contents {
-    struct BasicContent {
-        public static var dataCategory = "Pokemon"
+enum Contents {
+    enum BasicContent {
+        static let dataCategory = "Pokemon"
+    }
+    
+    enum Networking {
+        static let pokemonApiUrl = "https://pokeapi.co/api/v2/pokemon"
     }
 }

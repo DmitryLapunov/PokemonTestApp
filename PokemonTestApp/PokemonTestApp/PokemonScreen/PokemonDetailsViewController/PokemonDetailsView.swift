@@ -19,7 +19,7 @@ class PokemonDetailsView: UIView {
     private let stackView = UIStackView().then {
         $0.alignment = .fill
         $0.distribution = .fill
-        $0.spacing = 0
+        $0.spacing = Constants.StackView.zeroSpacing
         $0.axis = .vertical
     }
     
@@ -28,21 +28,20 @@ class PokemonDetailsView: UIView {
     private let pokemonImageView = UIImageView().then {
         $0.contentMode = .scaleAspectFit
         $0.clipsToBounds = true
-        $0.layer.cornerRadius = 50
         $0.backgroundColor = Colors.PokemonDetailsView.imageViewBackground
         $0.tintColor = Colors.PokemonDetailsView.imageViewTint
     }
     
     private let pokemonIdLabel = UILabel().then {
         $0.textAlignment = .left
-        $0.numberOfLines = 1
+        $0.numberOfLines = Constants.Label.singleLine
         $0.textColor = Colors.PokemonDetailsView.pokemonId
         $0.font = Fonts.PokemonDetailsView.pokemonId
     }
     
     private let pokemonNameLabel = UILabel().then {
         $0.textAlignment = .left
-        $0.numberOfLines = 1
+        $0.numberOfLines = Constants.Label.singleLine
         $0.textColor = Colors.PokemonDetailsView.pokemonName
         $0.font = Fonts.PokemonDetailsView.pokemonName
     }
@@ -51,7 +50,7 @@ class PokemonDetailsView: UIView {
         $0.axis = .horizontal
         $0.distribution = .fillEqually
         $0.alignment = .fill
-        $0.spacing = 16
+        $0.spacing = Constants.StackView.basicSpacing
     }
     
     private let weightView = UIView().then {
@@ -68,7 +67,7 @@ class PokemonDetailsView: UIView {
     
     private let weightLabel = UILabel().then {
         $0.textAlignment = .center
-        $0.numberOfLines = 1
+        $0.numberOfLines = Constants.Label.singleLine
         $0.textColor = Colors.PokemonDetailsView.pokemonDetails
         $0.font = Fonts.PokemonDetailsView.pokemonDetails
     }
@@ -87,7 +86,7 @@ class PokemonDetailsView: UIView {
     
     private let heightLabel = UILabel().then {
         $0.textAlignment = .center
-        $0.numberOfLines = 1
+        $0.numberOfLines = Constants.Label.singleLine
         $0.textColor = Colors.PokemonDetailsView.pokemonDetails
         $0.font = Fonts.PokemonDetailsView.pokemonDetails
     }
@@ -130,56 +129,56 @@ class PokemonDetailsView: UIView {
         }
         
         pokemonImageView.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(8)
-            $0.width.equalTo(100)
-            $0.height.equalTo(100)
-            $0.leading.equalToSuperview().offset(16)
+            $0.top.equalToSuperview().offset(Constants.TopConstraint.half)
+            $0.width.equalTo(Constants.PokemonDetailsView.pokemonImageViewWidth)
+            $0.height.equalTo(Constants.PokemonDetailsView.pokemonImageViewHeight)
+            $0.leading.equalToSuperview().offset(Constants.LeadingConstraint.basic)
         }
         
         pokemonIdLabel.snp.makeConstraints {
             $0.top.equalTo(pokemonImageView.snp.top)
-            $0.leading.equalTo(pokemonImageView.snp.trailing).offset(8)
-            $0.trailing.equalToSuperview().inset(16)
+            $0.leading.equalTo(pokemonImageView.snp.trailing).offset(Constants.LeadingConstraint.half)
+            $0.trailing.equalToSuperview().inset(Constants.TrailingConstraint.basic)
         }
         
         pokemonNameLabel.snp.makeConstraints {
             $0.top.equalTo(pokemonIdLabel.snp.bottom)
-            $0.leading.equalTo(pokemonImageView.snp.trailing).offset(8)
-            $0.trailing.equalToSuperview().inset(16)
+            $0.leading.equalTo(pokemonImageView.snp.trailing).offset(Constants.LeadingConstraint.half)
+            $0.trailing.equalToSuperview().inset(Constants.TrailingConstraint.basic)
         }
         
         statsStackView.snp.makeConstraints {
-            $0.top.equalTo(pokemonImageView.snp.bottom).offset(16)
-            $0.leading.equalToSuperview().offset(16)
-            $0.trailing.equalToSuperview().inset(16)
+            $0.top.equalTo(pokemonImageView.snp.bottom).offset(Constants.TopConstraint.basic)
+            $0.leading.equalToSuperview().offset(Constants.LeadingConstraint.basic)
+            $0.trailing.equalToSuperview().inset(Constants.TrailingConstraint.basic)
         }
         
         weightImageView.snp.makeConstraints {
-            $0.height.equalTo(40)
-            $0.width.equalTo(40)
-            $0.top.equalToSuperview().offset(8)
+            $0.height.equalTo(Constants.PokemonDetailsView.pokemonInfoImageViewHeight)
+            $0.width.equalTo(Constants.PokemonDetailsView.pokemonInfoImageViewWidth)
+            $0.top.equalToSuperview().offset(Constants.TopConstraint.half)
             $0.centerX.equalToSuperview()
         }
         
         weightLabel.snp.makeConstraints {
-            $0.top.equalTo(weightImageView.snp.bottom).offset(4)
-            $0.leading.equalToSuperview().offset(8)
-            $0.trailing.equalToSuperview().inset(8)
-            $0.bottom.equalToSuperview().inset(8)
+            $0.top.equalTo(weightImageView.snp.bottom).offset(Constants.TopConstraint.quarter)
+            $0.leading.equalToSuperview().offset(Constants.LeadingConstraint.half)
+            $0.trailing.equalToSuperview().inset(Constants.TrailingConstraint.half)
+            $0.bottom.equalToSuperview().inset(Constants.BottomConstraint.half)
         }
         
         heightImageView.snp.makeConstraints {
-            $0.height.equalTo(40)
-            $0.width.equalTo(40)
-            $0.top.equalToSuperview().offset(8)
+            $0.height.equalTo(Constants.PokemonDetailsView.pokemonInfoImageViewHeight)
+            $0.width.equalTo(Constants.PokemonDetailsView.pokemonInfoImageViewWidth)
+            $0.top.equalToSuperview().offset(Constants.TopConstraint.half)
             $0.centerX.equalToSuperview()
         }
         
         heightLabel.snp.makeConstraints {
-            $0.top.equalTo(heightImageView.snp.bottom).offset(4)
-            $0.leading.equalToSuperview().offset(8)
-            $0.trailing.equalToSuperview().inset(8)
-            $0.bottom.equalToSuperview().inset(8)
+            $0.top.equalTo(heightImageView.snp.bottom).offset(Constants.TopConstraint.quarter)
+            $0.leading.equalToSuperview().offset(Constants.LeadingConstraint.half)
+            $0.trailing.equalToSuperview().inset(Constants.TrailingConstraint.half)
+            $0.bottom.equalToSuperview().inset(Constants.BottomConstraint.half)
         }
     }
     
@@ -190,19 +189,19 @@ class PokemonDetailsView: UIView {
             if let pokemonType = PokemonOfficialTypes(rawValue: type) {
                 let typeView = UIView().then {
                     $0.backgroundColor = pokemonType.typeColor
-                    $0.layer.cornerRadius = 4
+                    $0.layer.cornerRadius = Constants.Corner.smallRadius
                 }
                 let typeLabel = UILabel().then {
                     $0.text = pokemonType.rawValue.uppercased()
-                    $0.textColor = UIColor.white
-                    $0.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
+                    $0.textColor = Colors.PokemonDetailsView.typeLabel
+                    $0.font = Fonts.PokemonDetailsView.typeLabel
                 }
                 typeView.addSubview(typeLabel)
                 typeLabel.snp.makeConstraints {
-                    $0.top.equalToSuperview().offset(2)
-                    $0.leading.equalToSuperview().offset(4)
-                    $0.trailing.equalToSuperview().inset(4)
-                    $0.bottom.equalToSuperview().inset(2)
+                    $0.top.equalToSuperview().offset(Constants.TopConstraint.eighth)
+                    $0.leading.equalToSuperview().offset(Constants.LeadingConstraint.quarter)
+                    $0.trailing.equalToSuperview().inset(Constants.TrailingConstraint.quarter)
+                    $0.bottom.equalToSuperview().inset(Constants.BottomConstraint.eighth)
                 }
                 typeViewsArray.append(typeView)
             }
@@ -211,12 +210,12 @@ class PokemonDetailsView: UIView {
             $0.axis = .horizontal
             $0.distribution = .fillProportionally
             $0.alignment = .fill
-            $0.spacing = 4
+            $0.spacing = Constants.StackView.quarterSpacing
         }
         contentView.addSubview(typeStackView)
         typeStackView.snp.makeConstraints {
-            $0.top.equalTo(pokemonNameLabel.snp.bottom).offset(2)
-            $0.leading.equalTo(pokemonImageView.snp.trailing).offset(8)
+            $0.top.equalTo(pokemonNameLabel.snp.bottom).offset(Constants.TopConstraint.eighth)
+            $0.leading.equalTo(pokemonImageView.snp.trailing).offset(Constants.LeadingConstraint.half)
         }
     }
     

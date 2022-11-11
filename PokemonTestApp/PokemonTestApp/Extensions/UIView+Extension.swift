@@ -9,13 +9,14 @@ import UIKit
 
 extension UIView {
     func addBorderAndShadow(borderColor: CGColor, shadowColor: CGColor) {
-        self.layer.cornerRadius = 8
-        self.layer.borderWidth = 1
+        self.layer.cornerRadius = Constants.Corner.basicRadius
+        self.layer.borderWidth = Constants.Border.defaultWidth
         self.layer.borderColor = borderColor
         self.layer.shadowColor = shadowColor
-        self.layer.shadowOffset = CGSize(width: 0, height: 3.0)
-        self.layer.shadowRadius = 3.0
-        self.layer.shadowOpacity = 0.1
+        self.layer.shadowOffset = CGSize(width: Constants.Shadow.offsetX,
+                                         height: Constants.Shadow.offsetY)
+        self.layer.shadowRadius = Constants.Shadow.radius
+        self.layer.shadowOpacity = Constants.Shadow.opacity
     }
     
     func launchShimmerAnimation(gradientColorOne: CGColor, gradientColorTwo: CGColor) {

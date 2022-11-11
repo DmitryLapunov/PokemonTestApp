@@ -7,18 +7,19 @@
 
 import UIKit
 
-struct Fonts {
-    struct PokemonListCell {
-        public static let pokemonName = UIFont.systemFont(ofSize: 16, weight: .semibold)
+enum Fonts {
+    enum PokemonListCell {
+        static let pokemonName = UIFont.systemFont(ofSize: 16, weight: .semibold)
     }
     
-    struct PokemonDetailsView {
-        public static let pokemonName = UIFont.systemFont(ofSize: 20, weight: .bold)
-        public static let pokemonId = UIFont.systemFont(ofSize: 16, weight: .regular)
-        public static let pokemonDetails = UIFont.systemFont(ofSize: 18, weight: .semibold)
+    enum PokemonDetailsView {
+        static let pokemonName = UIFont.systemFont(ofSize: 20, weight: .bold)
+        static let pokemonId = UIFont.systemFont(ofSize: 16, weight: .regular)
+        static let pokemonDetails = UIFont.systemFont(ofSize: 18, weight: .semibold)
+        static let typeLabel = UIFont.systemFont(ofSize: 14, weight: .semibold)
     }
     
-    struct CustomToast {
-        public static let label = UIFont.systemFont(ofSize: 16, weight: .regular)
+    enum CustomToast {
+        static let label = UIFont.systemFont(ofSize: 16, weight: .regular)
     }
 }

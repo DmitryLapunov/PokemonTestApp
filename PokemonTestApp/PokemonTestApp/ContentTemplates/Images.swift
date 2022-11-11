@@ -7,20 +7,20 @@
 
 import UIKit
 
-struct Images {
-    struct PokemonListCell {
-        public static let chevronRight = UIImage(systemName: "chevron.right")
-        public static let pokeballOutline = UIImage(named: "pokeball_outline")
-        public static let pokeballIcon = UIImage(named: "pokeball_icon")
+enum Images {
+    enum PokemonListCell {
+        static let chevronRight = UIImage(systemName: "chevron.right")
+        static let pokeballOutline = UIImage(named: "pokeball_outline")
+        static let pokeballIcon = UIImage(named: "pokeball_icon")
     }
     
-    struct PokemonDetailsView {
-        public static let placeholderImage = UIImage(systemName: "questionmark")
-        public static let scalemass = UIImage(systemName: "scalemass")
-        public static let pencilAndRuler = UIImage(systemName: "pencil.and.ruler")
+    enum PokemonDetailsView {
+        static let placeholderImage = UIImage(systemName: "questionmark")
+        static let scalemass = UIImage(systemName: "scalemass")
+        static let pencilAndRuler = UIImage(systemName: "pencil.and.ruler")
     }
     
-    struct CustomToast {
-        public static let error = UIImage(systemName: "xmark")
+    enum CustomToast {
+        static let error = UIImage(systemName: "xmark")
     }
 }
