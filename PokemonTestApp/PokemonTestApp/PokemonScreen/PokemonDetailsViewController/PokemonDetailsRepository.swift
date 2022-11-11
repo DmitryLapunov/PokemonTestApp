@@ -13,7 +13,7 @@ protocol PokemonDetailsRepositoryProtocol: AnyObject {
     func loadPokemonDetails(pokemonId: String, completion: @escaping PokemonDetailsHandler)
 }
 
-class PokemonDetailsRepository: PokemonDetailsRepositoryProtocol {
+final class PokemonDetailsRepository: PokemonDetailsRepositoryProtocol {
     private let networkManager: NetworkManagerProtocol
     
     init(networkManager: NetworkManagerProtocol = NetworkManager()) {

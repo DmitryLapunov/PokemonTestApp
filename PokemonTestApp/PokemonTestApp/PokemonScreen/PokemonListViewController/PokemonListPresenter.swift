@@ -12,7 +12,7 @@ protocol PokemonListPresenterProtocol: AnyObject {
     func reloadPokemonData()
 }
 
-class PokemonListPresenter: PokemonListPresenterProtocol {
+final class PokemonListPresenter: PokemonListPresenterProtocol {
     
     weak var view: PokemonListViewProtocol?
     private let repository: PokemonListRepositoryProtocol

@@ -11,7 +11,7 @@ protocol PokemonDetailsPresenterProtocol: AnyObject {
     func loadPokemonDetails()
 }
 
-class PokemonDetailsPresenter: PokemonDetailsPresenterProtocol {
+final class PokemonDetailsPresenter: PokemonDetailsPresenterProtocol {
     
     weak var view: PokemonDetailsViewProtocol?
     private let repository: PokemonDetailsRepositoryProtocol

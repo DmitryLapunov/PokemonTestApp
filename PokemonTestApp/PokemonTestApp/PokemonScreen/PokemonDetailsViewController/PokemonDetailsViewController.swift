@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PokemonDetailsViewController: UIViewController {
+final class PokemonDetailsViewController: UIViewController {
     
     var presenter: PokemonDetailsPresenterProtocol!
     

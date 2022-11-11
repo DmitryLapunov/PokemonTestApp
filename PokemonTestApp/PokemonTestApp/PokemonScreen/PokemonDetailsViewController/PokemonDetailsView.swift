@@ -10,7 +10,7 @@ import Then
 import SnapKit
 import Kingfisher
 
-class PokemonDetailsView: UIView {
+final class PokemonDetailsView: UIView {
     
     private let scrollView = UIScrollView().then {
         $0.showsVerticalScrollIndicator = false

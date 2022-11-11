@@ -7,7 +7,7 @@
 
 import UIKit
 
-class NavBarFormatter {
+final class NavBarFormatter {
     func configureNavBar() {
         let navigationBarAppearance = UINavigationBarAppearance()
         navigationBarAppearance.configureWithDefaultBackground()

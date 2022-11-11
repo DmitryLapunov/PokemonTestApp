@@ -7,7 +7,7 @@
 
 import Foundation
 
-class PokemonDetailsBuilder {
+final class PokemonDetailsBuilder {
     func build(pokemonId: String) -> PokemonDetailsViewController {
         let view = PokemonDetailsViewController()
         let presenter = PokemonDetailsPresenter(view: view, pokemonId: pokemonId)

@@ -12,7 +12,7 @@ protocol NetworkManagerProtocol: AnyObject {
     func sendRequest<T: Decodable>(endpoint: EndpointProtocol, then handler: @escaping (Result<T, Error>) -> Void)
 }
 
-class NetworkManager: NetworkManagerProtocol {
+final class NetworkManager: NetworkManagerProtocol {
     func sendRequest<T>(endpoint: EndpointProtocol, then handler: @escaping (Result<T, Error>) -> Void) where T: Decodable {
         let request = AF.request(
             endpoint.url.appendingPathComponent(endpoint.path),

@@ -14,7 +14,7 @@ protocol PokemonListRepositoryProtocol: AnyObject {
     func wipeCachedPokemons()
 }
 
-class PokemonListRepository: PokemonListRepositoryProtocol {
+final class PokemonListRepository: PokemonListRepositoryProtocol {
     private let networkManager: NetworkManagerProtocol
     private let coreDataManager: CoreDataManagerProtocol
     private let dataCategory: String = Contents.BasicContent.dataCategory

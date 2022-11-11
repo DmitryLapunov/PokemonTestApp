@@ -8,7 +8,7 @@
 import Foundation
 import Alamofire
 
-class PokemonDetailsEndpoint: EndpointProtocol {
+final class PokemonDetailsEndpoint: EndpointProtocol {
     let url: URL
     let method: HTTPMethod
     let path: Path

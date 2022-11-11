@@ -9,7 +9,7 @@ import UIKit
 import Then
 import SnapKit
 
-class PokemonListCell: UICollectionViewCell {
+final class PokemonListCell: UICollectionViewCell {
     
     static let reuseIdentifier = "PokemonListCell"
     

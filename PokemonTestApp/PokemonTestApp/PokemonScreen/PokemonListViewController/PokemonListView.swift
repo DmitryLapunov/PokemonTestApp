@@ -9,7 +9,7 @@ import UIKit
 import Then
 import SnapKit
 
-class PokemonListView: UIView {
+final class PokemonListView: UIView {
     
     weak var pokemonListViewDelegate: PokemonListViewDelegate?
     

@@ -14,7 +14,7 @@ protocol CoreDataManagerProtocol: AnyObject {
     func deletePokemonData(dataCategory: String)
 }
 
-class CoreDataManager: CoreDataManagerProtocol {
+final class CoreDataManager: CoreDataManagerProtocol {
     private lazy var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "PokemonTestApp")
         container.loadPersistentStores(completionHandler: { (_, error) in

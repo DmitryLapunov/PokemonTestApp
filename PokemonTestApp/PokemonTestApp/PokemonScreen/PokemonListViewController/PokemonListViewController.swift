@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PokemonListViewController: UIViewController {
+final class PokemonListViewController: UIViewController {
     
     var presenter: PokemonListPresenterProtocol!
     var pokemons: [PokemonListCellStructure] = []
