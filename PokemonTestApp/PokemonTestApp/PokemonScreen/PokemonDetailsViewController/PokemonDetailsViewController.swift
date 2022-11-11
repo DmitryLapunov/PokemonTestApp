@@ -10,14 +10,11 @@ import UIKit
 final class PokemonDetailsViewController: UIViewController {
     
     var presenter: PokemonDetailsPresenterProtocol?
-    
-    var controllerView: PokemonDetailsView {
-        return (self.view as! PokemonDetailsView)
-    }
+    let controllerView = PokemonDetailsView()
     
     override func loadView() {
         super.loadView()
-        self.view = PokemonDetailsView()
+        self.view = controllerView
     }
 
     override func viewDidLoad() {

@@ -10,17 +10,14 @@ import UIKit
 final class PokemonListViewController: UIViewController {
     
     var presenter: PokemonListPresenterProtocol?
+    let controllerView = PokemonListView()
     var pokemons: [PokemonListCellStructure] = []
-    
-    var controllerView: PokemonListView {
-        return (self.view as! PokemonListView)
-    }
     
     override func loadView() {
         super.loadView()
-        self.view = PokemonListView()
+        self.view = controllerView
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
