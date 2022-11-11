@@ -20,6 +20,7 @@ final class PokemonListView: UIView {
     
     private let refreshControl = UIRefreshControl().then {
         $0.addTarget(self, action: #selector(refreshCollectionView), for: .valueChanged)
+        $0.tintColor = Colors.PokemonListView.refreshControlTint
     }
     
     lazy var collectionView: UICollectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout).then {
@@ -30,6 +31,7 @@ final class PokemonListView: UIView {
                                        bottom: CGFloat(Constants.BottomConstraint.half),
                                        right: CGFloat(Constants.TrailingConstraint.basic))
         $0.refreshControl = refreshControl
+        $0.backgroundColor = Colors.PokemonListView.collectionViewBackground
     }
     
     override init(frame: CGRect) {

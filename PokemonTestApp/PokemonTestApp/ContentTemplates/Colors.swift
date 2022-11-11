@@ -8,31 +8,36 @@
 import UIKit
 
 enum Colors {
+    enum PokemonListView {
+        static let collectionViewBackground = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1.0)
+        static let refreshControlTint = UIColor(red: 198/255, green: 198/255, blue: 200/255, alpha: 1.0)
+    }
+    
     enum PokemonListCell {
         static let pokemonName = UIColor(red: 29/255, green: 44/255, blue: 94/255, alpha: 1.0)
         static let chevron = UIColor(red: 29/255, green: 44/255, blue: 94/255, alpha: 1.0)
-        static let cellBackground = UIColor.systemGray6
-        static let cellBorder = UIColor.systemGray5.cgColor
-        static let cellShadow = UIColor.black.cgColor
+        static let cellBackground = UIColor(red: 243/255, green: 242/255, blue: 248/255, alpha: 1.0)
+        static let cellBorder = UIColor(red: 229/255, green: 228/255, blue: 233/255, alpha: 1.0).cgColor
+        static let cellShadow = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 1.0).cgColor
     }
     
     enum PokemonDetailsView {
-        static let infoViewBackground = UIColor.systemGray6
-        static let imageViewBackground = UIColor.white
-        static let imageViewTint = UIColor.black
-        static let controllerViewBackground = UIColor.white
-        static let viewBorder = UIColor.systemGray5.cgColor
-        static let viewShadow = UIColor.black.cgColor
+        static let infoViewBackground = UIColor(red: 243/255, green: 242/255, blue: 248/255, alpha: 1.0)
+        static let imageViewBackground = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1.0)
+        static let imageViewTint = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 1.0)
+        static let controllerViewBackground = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1.0)
+        static let viewBorder = UIColor(red: 229/255, green: 228/255, blue: 233/255, alpha: 1.0).cgColor
+        static let viewShadow = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 1.0).cgColor
         static let pokemonName = UIColor(red: 29/255, green: 44/255, blue: 94/255, alpha: 1.0)
-        static let pokemonId = UIColor.systemGray3
+        static let pokemonId = UIColor(red: 198/255, green: 198/255, blue: 200/255, alpha: 1.0)
         static let pokemonDetails = UIColor(red: 29/255, green: 44/255, blue: 94/255, alpha: 1.0)
         static let icon = UIColor(red: 29/255, green: 44/255, blue: 94/255, alpha: 1.0)
-        static let typeLabel = UIColor.white
+        static let typeLabel = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1.0)
     }
     
     enum NavigationBar {
         static let background = UIColor(red: 239/255, green: 83/255, blue: 80/255, alpha: 1.0)
-        static let tint = UIColor.white
+        static let tint = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1.0)
     }
     
     enum PokemonOfficialTypes {
@@ -54,11 +59,5 @@ enum Colors {
         static let steel = UIColor(red: 90/255, green: 142/255, blue: 161/255, alpha: 1.0)
         static let ground = UIColor(red: 217/255, green: 119/255, blue: 70/255, alpha: 1.0)
         static let fairy = UIColor(red: 236/255, green: 143/255, blue: 230/255, alpha: 1.0)
-    }
-    
-    enum CustomToast {
-        static let error = UIColor.red
-        static let lightError = UIColor(red: 255/255, green: 223/255, blue: 229/255, alpha: 1.0)
-        static let white = UIColor.white
     }
 }
