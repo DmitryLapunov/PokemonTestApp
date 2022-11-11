@@ -24,9 +24,7 @@ class CoreDataManager: CoreDataManagerProtocol {
         })
         return container
     }()
-    
-    private let toastManager: ToastManagerProtocol = ToastManager()
-    
+        
     func readPokemonData(dataCategory: String) -> [PokemonModel] {
         let managedContext = persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "CachedPokemonListing")
@@ -38,7 +36,7 @@ class CoreDataManager: CoreDataManagerProtocol {
                 PokemonModel(name: $0.value(forKey: "name") as! String,
                         url: $0.value(forKey: "url") as! String) }
         } catch let error {
-            toastManager.displayToast(toastMessage: error.localizedDescription)
+            print(error.localizedDescription)
         }
         return pokemons
     }
@@ -55,7 +53,7 @@ class CoreDataManager: CoreDataManagerProtocol {
         do {
             try managedContext.save()
         } catch let error as NSError {
-            toastManager.displayToast(toastMessage: "Could not save. \(error), \(error.userInfo)")
+            print("Could not save. \(error), \(error.userInfo)")
         }
     }
     
@@ -70,7 +68,7 @@ class CoreDataManager: CoreDataManagerProtocol {
                 managedContext.delete(managedObject)
             }
         } catch let error as NSError {
-            toastManager.displayToast(toastMessage: "Detele all data in \(dataCategory) category error : \(error) \(error.userInfo)")
+            print("Detele all data in \(dataCategory) category error : \(error) \(error.userInfo)")
         }
     }
 }

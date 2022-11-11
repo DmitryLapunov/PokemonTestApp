@@ -20,7 +20,6 @@ class PokemonListPresenter: PokemonListPresenterProtocol {
     private var page = 0
     private var totalPages = 0
     private var isLoadingContent = false
-    private let toastManager: ToastManagerProtocol = ToastManager()
     
     init(view: PokemonListViewProtocol, repository: PokemonListRepositoryProtocol = PokemonListRepository()) {
         self.view = view
@@ -55,7 +54,7 @@ class PokemonListPresenter: PokemonListPresenterProtocol {
                 self.page += 1
             case .failure(let error):
                 self.view?.stopRefreshing()
-                self.toastManager.displayToast(toastMessage: error.localizedDescription)
+                print(error.localizedDescription)
             }
         }
     }

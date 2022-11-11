@@ -53,6 +53,10 @@ enum Constants {
         static let quarterSpacing: CGFloat = 4
     }
     
+    enum CollectionView {
+        static let halfSpacing: CGFloat = 8
+    }
+    
     enum Shadow {
         static let offsetX = 0.0
         static let offsetY = 3.0

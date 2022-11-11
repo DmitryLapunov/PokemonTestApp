@@ -15,19 +15,20 @@ class PokemonListView: UIView {
     
     private let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout.init().then {
         $0.scrollDirection = .vertical
-        $0.minimumLineSpacing = 8
+        $0.minimumLineSpacing = Constants.CollectionView.halfSpacing
     }
     
     private let refreshControl = UIRefreshControl().then {
         $0.addTarget(self, action: #selector(refreshCollectionView), for: .valueChanged)
-        $0.attributedTitle = NSAttributedString(string: "Trying to update data...")
     }
     
     lazy var collectionView: UICollectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout).then {
         $0.register(PokemonListCell.self, forCellWithReuseIdentifier: PokemonListCell.reuseIdentifier)
-        $0.register(PokemonListShimmerCell.self, forCellWithReuseIdentifier: PokemonListShimmerCell.reuseIdentifier)
         $0.showsVerticalScrollIndicator = false
-        $0.contentInset = UIEdgeInsets(top: 8, left: 16, bottom: 8, right: 16)
+        $0.contentInset = UIEdgeInsets(top: CGFloat(Constants.TopConstraint.half),
+                                       left: CGFloat(Constants.LeadingConstraint.basic),
+                                       bottom: CGFloat(Constants.BottomConstraint.half),
+                                       right: CGFloat(Constants.TrailingConstraint.basic))
         $0.refreshControl = refreshControl
     }
     

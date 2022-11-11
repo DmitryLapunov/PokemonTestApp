@@ -41,10 +41,7 @@
 		89CA435529198BA200CD865A /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CA435429198BA200CD865A /* UIView+Extension.swift */; };
 		89CA43582919990A00CD865A /* NavBarFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CA43572919990A00CD865A /* NavBarFormatter.swift */; };
 		89CA435A2919CEF700CD865A /* PokemonOfficialTypesEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CA43592919CEF700CD865A /* PokemonOfficialTypesEnum.swift */; };
-		89CA435D2919E21900CD865A /* CustomToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CA435C2919E21900CD865A /* CustomToast.swift */; };
-		89CA43602919E57200CD865A /* ToastManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CA435F2919E57200CD865A /* ToastManager.swift */; };
 		89CA43622919F68F00CD865A /* PokemonListViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CA43612919F68F00CD865A /* PokemonListViewDelegate.swift */; };
-		89CA4364291A0B4800CD865A /* PokemonListShimmerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CA4363291A0B4800CD865A /* PokemonListShimmerCell.swift */; };
 		89CA4370291A2CEC00CD865A /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CA436F291A2CEC00CD865A /* CoreDataManager.swift */; };
 		89CA4372291A31C900CD865A /* Contents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CA4371291A31C900CD865A /* Contents.swift */; };
 		89CA4374291DC09800CD865A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CA4373291DC09800CD865A /* Constants.swift */; };
@@ -88,10 +85,7 @@
 		89CA435429198BA200CD865A /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		89CA43572919990A00CD865A /* NavBarFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavBarFormatter.swift; sourceTree = "<group>"; };
 		89CA43592919CEF700CD865A /* PokemonOfficialTypesEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonOfficialTypesEnum.swift; sourceTree = "<group>"; };
-		89CA435C2919E21900CD865A /* CustomToast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomToast.swift; sourceTree = "<group>"; };
-		89CA435F2919E57200CD865A /* ToastManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastManager.swift; sourceTree = "<group>"; };
 		89CA43612919F68F00CD865A /* PokemonListViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonListViewDelegate.swift; sourceTree = "<group>"; };
-		89CA4363291A0B4800CD865A /* PokemonListShimmerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonListShimmerCell.swift; sourceTree = "<group>"; };
 		89CA436F291A2CEC00CD865A /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		89CA4371291A31C900CD865A /* Contents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contents.swift; sourceTree = "<group>"; };
 		89CA4373291DC09800CD865A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -152,9 +146,6 @@
 			children = (
 				89CA433E291957A000CD865A /* Extensions */,
 				89CA432F291615E900CD865A /* FormattingTools */,
-				89CA4356291998FF00CD865A /* NavBarFormatter */,
-				89CA435B2919E1F700CD865A /* CustomViews */,
-				89CA435E2919E52E00CD865A /* ToastManager */,
 				89CA436E291A2C4B00CD865A /* CoreData */,
 				89CA43152915DF7100CD865A /* NetworkTools */,
 				89CA43242915FCE900CD865A /* ContentTemplates */,
@@ -219,7 +210,6 @@
 			children = (
 				89CA432B291604A100CD865A /* PokemonListCellStructure.swift */,
 				89CA43222915FA9900CD865A /* PokemonListCell.swift */,
-				89CA4363291A0B4800CD865A /* PokemonListShimmerCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -240,6 +230,7 @@
 			isa = PBXGroup;
 			children = (
 				89CA4330291615F500CD865A /* UrlFormatter.swift */,
+				89CA43572919990A00CD865A /* NavBarFormatter.swift */,
 			);
 			path = FormattingTools;
 			sourceTree = "<group>";
@@ -265,30 +256,6 @@
 				89CA4352291987D500CD865A /* PokemonDetailsBuilder.swift */,
 			);
 			path = PokemonDetailsViewController;
-			sourceTree = "<group>";
-		};
-		89CA4356291998FF00CD865A /* NavBarFormatter */ = {
-			isa = PBXGroup;
-			children = (
-				89CA43572919990A00CD865A /* NavBarFormatter.swift */,
-			);
-			path = NavBarFormatter;
-			sourceTree = "<group>";
-		};
-		89CA435B2919E1F700CD865A /* CustomViews */ = {
-			isa = PBXGroup;
-			children = (
-				89CA435C2919E21900CD865A /* CustomToast.swift */,
-			);
-			path = CustomViews;
-			sourceTree = "<group>";
-		};
-		89CA435E2919E52E00CD865A /* ToastManager */ = {
-			isa = PBXGroup;
-			children = (
-				89CA435F2919E57200CD865A /* ToastManager.swift */,
-			);
-			path = ToastManager;
 			sourceTree = "<group>";
 		};
 		89CA436E291A2C4B00CD865A /* CoreData */ = {
@@ -414,7 +381,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				89CA435D2919E21900CD865A /* CustomToast.swift in Sources */,
 				89CA43352916839D00CD865A /* PokemonListViewController+Extension.swift in Sources */,
 				89CA43172915DF8100CD865A /* EndpointProtocol.swift in Sources */,
 				89CA434B29197AF100CD865A /* PokemonDetailsView.swift in Sources */,
@@ -446,11 +412,9 @@
 				89CA434F2919844600CD865A /* PokemonDetailsPresenter.swift in Sources */,
 				89CA435A2919CEF700CD865A /* PokemonOfficialTypesEnum.swift in Sources */,
 				89CA43262915FD2200CD865A /* Fonts.swift in Sources */,
-				89CA4364291A0B4800CD865A /* PokemonListShimmerCell.swift in Sources */,
 				89CA433329167B2000CD865A /* PokemonListViewController.swift in Sources */,
 				89CA433929168DA700CD865A /* PokemonListView.swift in Sources */,
 				89CA434529196CB700CD865A /* PokemonDetailsEndpoint.swift in Sources */,
-				89CA43602919E57200CD865A /* ToastManager.swift in Sources */,
 				89CA431C2915E84B00CD865A /* PokemonModel.swift in Sources */,
 				89CA433B29168F9F00CD865A /* PokemonListPresenter.swift in Sources */,
 			);
