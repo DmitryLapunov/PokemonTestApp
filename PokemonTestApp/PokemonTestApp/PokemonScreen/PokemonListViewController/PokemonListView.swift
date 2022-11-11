@@ -23,14 +23,14 @@ final class PokemonListView: UIView {
         $0.tintColor = Colors.PokemonListView.refreshControlTint
     }
     
-    lazy var collectionView: UICollectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout).then {
+    let collectionView: UICollectionView = UICollectionView(frame: CGRect.zero,
+                                                                 collectionViewLayout: UICollectionViewFlowLayout.init()).then {
         $0.register(PokemonListCell.self, forCellWithReuseIdentifier: PokemonListCell.reuseIdentifier)
         $0.showsVerticalScrollIndicator = false
         $0.contentInset = UIEdgeInsets(top: CGFloat(Constants.TopConstraint.half),
                                        left: CGFloat(Constants.LeadingConstraint.basic),
                                        bottom: CGFloat(Constants.BottomConstraint.half),
                                        right: CGFloat(Constants.TrailingConstraint.basic))
-        $0.refreshControl = refreshControl
         $0.backgroundColor = Colors.PokemonListView.collectionViewBackground
     }
     
@@ -44,7 +44,13 @@ final class PokemonListView: UIView {
         super.init(coder: coder)
     }
     
+    private func setupCollectionView() {
+        collectionView.setCollectionViewLayout(layout, animated: true)
+        collectionView.refreshControl = refreshControl
+    }
+    
     private func setupSubviews() {
+        setupCollectionView()
         addSubview(collectionView)
     }
     

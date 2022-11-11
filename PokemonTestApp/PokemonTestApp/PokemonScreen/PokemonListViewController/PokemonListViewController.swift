@@ -9,7 +9,7 @@ import UIKit
 
 final class PokemonListViewController: UIViewController {
     
-    var presenter: PokemonListPresenterProtocol!
+    var presenter: PokemonListPresenterProtocol?
     var pokemons: [PokemonListCellStructure] = []
     
     var controllerView: PokemonListView {
@@ -24,7 +24,7 @@ final class PokemonListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
-        presenter.loadPokemonData()
+        presenter?.loadPokemonData()
     }
     
     init() {

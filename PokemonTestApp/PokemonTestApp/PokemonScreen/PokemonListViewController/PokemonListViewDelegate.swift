@@ -13,6 +13,6 @@ protocol PokemonListViewDelegate: AnyObject {
 
 extension PokemonListViewController: PokemonListViewDelegate {
     func refreshPokemonData() {
-        presenter.reloadPokemonData()
+        presenter?.reloadPokemonData()
     }
 }

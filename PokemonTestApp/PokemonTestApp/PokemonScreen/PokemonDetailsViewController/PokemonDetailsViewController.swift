@@ -9,7 +9,7 @@ import UIKit
 
 final class PokemonDetailsViewController: UIViewController {
     
-    var presenter: PokemonDetailsPresenterProtocol!
+    var presenter: PokemonDetailsPresenterProtocol?
     
     var controllerView: PokemonDetailsView {
         return (self.view as! PokemonDetailsView)
@@ -22,7 +22,7 @@ final class PokemonDetailsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        presenter.loadPokemonDetails()
+        presenter?.loadPokemonDetails()
     }
     
     init() {
