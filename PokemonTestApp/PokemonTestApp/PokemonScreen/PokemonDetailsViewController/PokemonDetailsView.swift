@@ -12,6 +12,8 @@ import Kingfisher
 
 final class PokemonDetailsView: UIView {
     
+    // MARK: - UI elements
+    
     private let scrollView = UIScrollView().then {
         $0.showsVerticalScrollIndicator = false
     }
@@ -91,6 +93,8 @@ final class PokemonDetailsView: UIView {
         $0.font = Fonts.PokemonDetailsView.pokemonDetails
     }
     
+    // MARK: - Init methods
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = Colors.PokemonDetailsView.controllerViewBackground
@@ -101,6 +105,8 @@ final class PokemonDetailsView: UIView {
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
+    
+    // MARK: - UIView setup methods
     
     private func setupSubviews() {
         addSubview(scrollView)

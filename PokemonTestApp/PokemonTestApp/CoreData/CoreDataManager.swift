@@ -29,6 +29,8 @@ final class CoreDataManager: CoreDataManagerProtocol {
     
     let alertManager = AlertManager()
     
+    // MARK: - Methods to read and write Pokemon details
+    
     func readPokemonById(id: Int) -> PokemonDetailsStructure? {
         let managedContext = persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: Contents.CoreData.pokemonDetailsEntity)
@@ -68,6 +70,8 @@ final class CoreDataManager: CoreDataManagerProtocol {
             alertManager.createAlert(message: "Could not save. \(error), \(error.userInfo)")
         }
     }
+    
+    // MARK: - Methods to read, write and delete general data of all Pokemon
     
     func readPokemonData(dataCategory: String) -> [PokemonModel] {
         let managedContext = persistentContainer.viewContext

@@ -15,6 +15,8 @@ protocol PokemonListPresenterProtocol: AnyObject {
 
 final class PokemonListPresenter: PokemonListPresenterProtocol {
     
+    // MARK: - Class properties
+    
     weak var view: PokemonListViewProtocol?
     private let repository: PokemonListRepositoryProtocol
     private let alertManager = AlertManager()
@@ -23,10 +25,14 @@ final class PokemonListPresenter: PokemonListPresenterProtocol {
     private var totalPages = 0
     private var isLoadingContent = false
     
+    // MARK: - Init method
+    
     init(view: PokemonListViewProtocol, repository: PokemonListRepositoryProtocol = PokemonListRepository()) {
         self.view = view
         self.repository = repository
     }
+    
+    // MARK: - Presenter data-handling methods
     
     func loadPokemonData() {
         guard !isLoadingContent else { return }
@@ -35,7 +41,6 @@ final class PokemonListPresenter: PokemonListPresenterProtocol {
                 return
             }
         }
-        
         isLoadingContent = true
         repository.loadPokemons(nextPagePath: nextPagePath) { [weak self] result in
             guard let self = self else { return }

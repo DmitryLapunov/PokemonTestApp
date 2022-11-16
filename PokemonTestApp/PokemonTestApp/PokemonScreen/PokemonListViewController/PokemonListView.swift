@@ -11,7 +11,11 @@ import SnapKit
 
 final class PokemonListView: UIView {
     
+    // MARK: - Class properties
+    
     weak var pokemonListViewDelegate: PokemonListViewDelegate?
+    
+    // MARK: - UI elements
     
     private let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout.init().then {
         $0.scrollDirection = .vertical
@@ -34,6 +38,8 @@ final class PokemonListView: UIView {
         $0.backgroundColor = Colors.PokemonListView.collectionViewBackground
     }
     
+    // MARK: - Init methods
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupSubviews()
@@ -43,6 +49,8 @@ final class PokemonListView: UIView {
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
+    
+    // MARK: - UIView setup methods
     
     private func setupCollectionView() {
         collectionView.setCollectionViewLayout(layout, animated: true)

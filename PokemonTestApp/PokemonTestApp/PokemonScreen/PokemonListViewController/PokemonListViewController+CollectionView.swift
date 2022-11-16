@@ -7,6 +7,8 @@
 
 import UIKit
 
+// MARK: - UICollectionViewDelegateFlowLayout methods
+
 extension PokemonListViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: controllerView.frame.width - 32, height: 45)
@@ -21,6 +23,8 @@ extension PokemonListViewController: UICollectionViewDelegateFlowLayout {
         }
     }
 }
+
+// MARK: - UICollectionViewDataSource methods
 
 extension PokemonListViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

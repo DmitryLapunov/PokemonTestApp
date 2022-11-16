@@ -9,9 +9,13 @@ import UIKit
 
 final class PokemonListViewController: UIViewController {
     
+    // MARK: - Class properties
+    
     var presenter: PokemonListPresenterProtocol?
     let controllerView = PokemonListView()
     var pokemons: [PokemonListCellStructure] = []
+    
+    // MARK: - UIViewController events
     
     override func loadView() {
         super.loadView()
@@ -24,6 +28,8 @@ final class PokemonListViewController: UIViewController {
         presenter?.loadPokemonData()
     }
     
+    // MARK: - Init methods
+    
     init() {
         super.init(nibName: nil, bundle: nil)
     }
@@ -31,6 +37,8 @@ final class PokemonListViewController: UIViewController {
     required convenience init?(coder: NSCoder) {
         self.init()
     }
+    
+    // MARK: - UIViewController setup
     
     private func setupView() {
         controllerView.collectionView.delegate = self

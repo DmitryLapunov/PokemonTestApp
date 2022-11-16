@@ -8,6 +8,9 @@
 import UIKit
 
 final class AlertManager {
+    
+    // MARK: - Method to create custom alert with a single button
+    
     func createAlert(message: String) {
         let alertController = UIAlertController(title: nil,
                                                 message: message,

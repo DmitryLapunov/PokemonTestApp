@@ -11,7 +11,11 @@ import SnapKit
 
 final class PokemonListCell: UICollectionViewCell {
     
+    // MARK: - Class properties
+    
     static let reuseIdentifier = "PokemonListCell"
+    
+    // MARK: - UI elements
     
     private let cellBackgroundView = UIView().then {
         $0.clipsToBounds = true
@@ -41,6 +45,8 @@ final class PokemonListCell: UICollectionViewCell {
         $0.image = Images.PokemonListCell.chevronRight
     }
     
+    // MARK: - Init methods
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupView()
@@ -51,6 +57,8 @@ final class PokemonListCell: UICollectionViewCell {
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
+    
+    // MARK: - UICollectionViewCell setup methods
     
     private func setupView() {
         self.contentView.layer.cornerRadius = Constants.Corner.basicRadius

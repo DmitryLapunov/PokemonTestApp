@@ -29,6 +29,8 @@ final class PokemonListRepository: PokemonListRepositoryProtocol {
         self.coreDataManager = coreDataManager
     }
     
+    // MARK: - Methods to fetch general Pokemon data to create lists
+    
     func loadPokemons(nextPagePath: String, completion: @escaping PokemonListHandler) {
         if let pokemonsCount = pokemonsCount, let next = next, nextPagePath.isEmpty {
             let fetchedPokemons = coreDataManager.readPokemonData(dataCategory: dataCategory)
@@ -66,6 +68,8 @@ final class PokemonListRepository: PokemonListRepositoryProtocol {
     func wipeCachedPokemons() {
         coreDataManager.deletePokemonData(dataCategory: dataCategory)
     }
+    
+    // MARK: - Methods to fetch detailed data on a particular Pokemon
     
     func loadPokemonDetails(pokemonId: String, completion: @escaping PokemonDetailsHandler) {
         if let id = Int(pokemonId), let cachedPokemon = coreDataManager.readPokemonById(id: id) {
