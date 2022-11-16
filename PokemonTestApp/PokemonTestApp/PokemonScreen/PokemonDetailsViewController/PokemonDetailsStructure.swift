@@ -23,4 +23,18 @@ struct PokemonDetailsStructure {
         self.weight = pokemonDetails.weightInKg
         self.types = pokemonDetails.typesArray
     }
+    
+    init(id: Int,
+         name: String,
+         imageUrl: String,
+         height: Int,
+         weight: Double,
+         types: [String]) {
+        self.id = id
+        self.name = name
+        self.imageUrl = imageUrl
+        self.height = height
+        self.weight = weight
+        self.types = types
+    }
 }

@@ -24,7 +24,7 @@ final class PokemonListView: UIView {
     }
     
     let collectionView: UICollectionView = UICollectionView(frame: CGRect.zero,
-                                                                 collectionViewLayout: UICollectionViewFlowLayout.init()).then {
+                                                            collectionViewLayout: UICollectionViewFlowLayout.init()).then {
         $0.register(PokemonListCell.self, forCellWithReuseIdentifier: PokemonListCell.reuseIdentifier)
         $0.showsVerticalScrollIndicator = false
         $0.contentInset = UIEdgeInsets(top: CGFloat(Constants.TopConstraint.half),
