@@ -30,16 +30,18 @@ final class CoreDataManager: CoreDataManagerProtocol {
     func readPokemonById(id: Int) -> PokemonDetailsStructure? {
         let managedContext = persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: Contents.CoreData.pokemonDetailsEntity)
-        fetchRequest.predicate = NSPredicate(format: "id = %@", id)
+        fetchRequest.predicate = NSPredicate(format: "id = %i", id)
         var pokemon: PokemonDetailsStructure?
         do {
-            let fetchedPokemon = try managedContext.fetch(fetchRequest)
-            pokemon = PokemonDetailsStructure(id: fetchedPokemon[0].value(forKey: "id") as! Int,
-                                              name: fetchedPokemon[0].value(forKey: "name") as! String,
-                                              imageUrl: fetchedPokemon[0].value(forKey: "imageUrl") as! String,
-                                              height: fetchedPokemon[0].value(forKey: "height") as! Int,
-                                              weight: fetchedPokemon[0].value(forKey: "weight") as! Double,
-                                              types: fetchedPokemon[0].value(forKey: "types") as! [String])
+            let fetchedPokemons = try managedContext.fetch(fetchRequest)
+            if let fetchedPokemon = fetchedPokemons.first {
+                pokemon = PokemonDetailsStructure(id: fetchedPokemon.value(forKey: "id") as! Int,
+                                                  name: fetchedPokemon.value(forKey: "name") as! String,
+                                                  imageUrl: fetchedPokemon.value(forKey: "imageUrl") as! String,
+                                                  height: fetchedPokemon.value(forKey: "height") as! Int,
+                                                  weight: fetchedPokemon.value(forKey: "weight") as! Double,
+                                                  types: fetchedPokemon.value(forKey: "types") as! [String])
+            }
         } catch let error {
             print(error.localizedDescription)
         }

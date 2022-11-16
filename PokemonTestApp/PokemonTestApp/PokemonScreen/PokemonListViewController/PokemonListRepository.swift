@@ -11,6 +11,7 @@ typealias PokemonListHandler = (Result<PokemonListCellStructures, Error>) -> Voi
 
 protocol PokemonListRepositoryProtocol: AnyObject {
     func loadPokemons(nextPagePath: String, completion: @escaping PokemonListHandler)
+    func loadPokemonDetails(pokemonId: String, completion: @escaping PokemonDetailsHandler)
     func wipeCachedPokemons()
 }
 
@@ -63,5 +64,31 @@ final class PokemonListRepository: PokemonListRepositoryProtocol {
     
     func wipeCachedPokemons() {
         coreDataManager.deletePokemonData(dataCategory: dataCategory)
+    }
+    
+    func loadPokemonDetails(pokemonId: String, completion: @escaping PokemonDetailsHandler) {
+        if let id = Int(pokemonId), let cachedPokemon = coreDataManager.readPokemonById(id: id) {
+            completion(.success(cachedPokemon))
+        } else {
+            preparePokemonDetailsRequest(pokemonId: pokemonId) { result in
+                switch result {
+                case .success(let pokemonDetails):
+                    let pokemonDetailsStructure = PokemonDetailsStructure(pokemonDetails: pokemonDetails)
+                    self.savePokemonDetails(details: pokemonDetailsStructure)
+                    completion(.success(pokemonDetailsStructure))
+                case .failure(let error):
+                    completion(.failure(error))
+                }
+            }
+        }
+    }
+    
+    private func preparePokemonDetailsRequest(pokemonId: String, handler: @escaping (Result<PokemonDetailsModel, Error>) -> Void) {
+        let endpoint = PokemonDetailsEndpoint(pokemonId: pokemonId)
+        networkManager.sendRequest(endpoint: endpoint.setEndpoint(), then: handler)
+    }
+    
+    private func savePokemonDetails(details: PokemonDetailsStructure) {
+        coreDataManager.savePokemonDetails(details: details)
     }
 }

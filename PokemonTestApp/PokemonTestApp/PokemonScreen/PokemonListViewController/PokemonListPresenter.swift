@@ -10,6 +10,7 @@ import Foundation
 protocol PokemonListPresenterProtocol: AnyObject {
     func loadPokemonData()
     func reloadPokemonData()
+    func loadPokemonDetails(pokemonId: String)
 }
 
 final class PokemonListPresenter: PokemonListPresenterProtocol {
@@ -67,5 +68,16 @@ final class PokemonListPresenter: PokemonListPresenterProtocol {
         repository.wipeCachedPokemons()
         view?.wipeOutdatedPokemonData()
         loadPokemonData()
+    }
+    
+    func loadPokemonDetails(pokemonId: String) {
+        repository.loadPokemonDetails(pokemonId: pokemonId) { [weak self] result in
+            switch result {
+            case .success(let pokemonDetails):
+                self?.view?.presentPokemonDetails(pokemonDetails: pokemonDetails)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
     }
 }

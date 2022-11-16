@@ -12,6 +12,7 @@ protocol PokemonListViewProtocol: AnyObject {
     func continueLoadingData(pokemons: [PokemonListCellStructure])
     func wipeOutdatedPokemonData()
     func stopRefreshing()
+    func presentPokemonDetails(pokemonDetails: PokemonDetailsStructure)
 }
 
 extension PokemonListViewController: PokemonListViewProtocol {
@@ -35,5 +36,11 @@ extension PokemonListViewController: PokemonListViewProtocol {
     
     func stopRefreshing() {
         controllerView.stopRefreshing()
+    }
+    
+    func presentPokemonDetails(pokemonDetails: PokemonDetailsStructure) {
+        let pokemonDetailsBuilder = PokemonDetailsBuilder()
+        let pokemonDetailsViewController = pokemonDetailsBuilder.build(pokemonId: "\(pokemonDetails.id)")
+        navigationController?.pushViewController(pokemonDetailsViewController, animated: true)
     }
 }
