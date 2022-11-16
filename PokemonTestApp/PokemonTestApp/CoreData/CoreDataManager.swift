@@ -27,6 +27,8 @@ final class CoreDataManager: CoreDataManagerProtocol {
         return container
     }()
     
+    let alertManager = AlertManager()
+    
     func readPokemonById(id: Int) -> PokemonDetailsStructure? {
         let managedContext = persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: Contents.CoreData.pokemonDetailsEntity)
@@ -43,7 +45,7 @@ final class CoreDataManager: CoreDataManagerProtocol {
                                                   types: fetchedPokemon.value(forKey: "types") as! [String])
             }
         } catch let error {
-            print(error.localizedDescription)
+            alertManager.createAlert(message: error.localizedDescription)
         }
         return pokemon
     }
@@ -63,7 +65,7 @@ final class CoreDataManager: CoreDataManagerProtocol {
         do {
             try managedContext.save()
         } catch let error as NSError {
-            print("Could not save. \(error), \(error.userInfo)")
+            alertManager.createAlert(message: "Could not save. \(error), \(error.userInfo)")
         }
     }
     
@@ -78,7 +80,7 @@ final class CoreDataManager: CoreDataManagerProtocol {
                 PokemonModel(name: $0.value(forKey: "name") as! String,
                              url: $0.value(forKey: "url") as! String) }
         } catch let error {
-            print(error.localizedDescription)
+            alertManager.createAlert(message: error.localizedDescription)
         }
         return pokemons
     }
@@ -95,7 +97,7 @@ final class CoreDataManager: CoreDataManagerProtocol {
         do {
             try managedContext.save()
         } catch let error as NSError {
-            print("Could not save. \(error), \(error.userInfo)")
+            alertManager.createAlert(message: "Could not save. \(error), \(error.userInfo)")
         }
     }
     
@@ -110,7 +112,7 @@ final class CoreDataManager: CoreDataManagerProtocol {
                 managedContext.delete(managedObject)
             }
         } catch let error as NSError {
-            print("Detele all data in \(dataCategory) category error : \(error) \(error.userInfo)")
+            alertManager.createAlert(message: "Detele all data in \(dataCategory) category error: \(error) \(error.userInfo)")
         }
     }
 }

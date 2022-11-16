@@ -15,7 +15,7 @@ extension PokemonListViewController: UICollectionViewDelegateFlowLayout {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let height = scrollView.frame.size.height
         let contentYoffset = scrollView.contentOffset.y
-        let distanceFromBottom = scrollView.contentSize.height - contentYoffset - 100
+        let distanceFromBottom = scrollView.contentSize.height - contentYoffset - height
         if distanceFromBottom < height {
             presenter?.loadPokemonData()
         }

@@ -17,6 +17,7 @@ final class PokemonListPresenter: PokemonListPresenterProtocol {
     
     weak var view: PokemonListViewProtocol?
     private let repository: PokemonListRepositoryProtocol
+    private let alertManager = AlertManager()
     private var nextPagePath = ""
     private var page = 0
     private var totalPages = 0
@@ -55,7 +56,7 @@ final class PokemonListPresenter: PokemonListPresenterProtocol {
                 self.page += 1
             case .failure(let error):
                 self.view?.stopRefreshing()
-                print(error.localizedDescription)
+                self.alertManager.createAlert(message: error.localizedDescription)
             }
         }
     }
@@ -72,11 +73,12 @@ final class PokemonListPresenter: PokemonListPresenterProtocol {
     
     func loadPokemonDetails(pokemonId: String) {
         repository.loadPokemonDetails(pokemonId: pokemonId) { [weak self] result in
+            guard let self = self else { return }
             switch result {
             case .success(let pokemonDetails):
-                self?.view?.presentPokemonDetails(pokemonDetails: pokemonDetails)
+                self.view?.presentPokemonDetails(pokemonDetails: pokemonDetails)
             case .failure(let error):
-                print(error.localizedDescription)
+                self.alertManager.createAlert(message: error.localizedDescription)
             }
         }
     }
