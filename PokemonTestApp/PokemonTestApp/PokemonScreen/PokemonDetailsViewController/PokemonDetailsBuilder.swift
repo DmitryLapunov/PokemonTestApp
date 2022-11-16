@@ -8,9 +8,9 @@
 import Foundation
 
 final class PokemonDetailsBuilder {
-    func build(pokemonId: String) -> PokemonDetailsViewController {
+    func build(pokemonDetails: PokemonDetailsStructure) -> PokemonDetailsViewController {
         let view = PokemonDetailsViewController()
-        let presenter = PokemonDetailsPresenter(view: view, pokemonId: pokemonId)
+        let presenter = PokemonDetailsPresenter(view: view, pokemonDetails: pokemonDetails)
         view.presenter = presenter
         return view
     }

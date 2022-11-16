@@ -8,6 +8,7 @@
 import Foundation
 
 typealias PokemonListHandler = (Result<PokemonListCellStructures, Error>) -> Void
+typealias PokemonDetailsHandler = (Result<PokemonDetailsStructure, Error>) -> Void
 
 protocol PokemonListRepositoryProtocol: AnyObject {
     func loadPokemons(nextPagePath: String, completion: @escaping PokemonListHandler)

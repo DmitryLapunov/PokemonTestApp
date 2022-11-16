@@ -40,7 +40,7 @@ extension PokemonListViewController: PokemonListViewProtocol {
     
     func presentPokemonDetails(pokemonDetails: PokemonDetailsStructure) {
         let pokemonDetailsBuilder = PokemonDetailsBuilder()
-        let pokemonDetailsViewController = pokemonDetailsBuilder.build(pokemonId: "\(pokemonDetails.id)")
+        let pokemonDetailsViewController = pokemonDetailsBuilder.build(pokemonDetails: pokemonDetails)
         navigationController?.pushViewController(pokemonDetailsViewController, animated: true)
     }
 }
