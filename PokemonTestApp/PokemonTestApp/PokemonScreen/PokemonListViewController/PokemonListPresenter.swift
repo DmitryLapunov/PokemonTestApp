@@ -11,6 +11,7 @@ protocol PokemonListPresenterProtocol: AnyObject {
     func loadPokemonData()
     func reloadPokemonData()
     func loadPokemonDetails(pokemonId: String)
+    func handleCollectionViewInteraction(action: CollectionViewInteraction)
 }
 
 final class PokemonListPresenter: PokemonListPresenterProtocol {
@@ -86,5 +87,11 @@ final class PokemonListPresenter: PokemonListPresenterProtocol {
                 self.alertManager.createAlert(message: error.localizedDescription)
             }
         }
+    }
+    
+    // MARK: - Presenter UI-handling methods
+    
+    func handleCollectionViewInteraction(action: CollectionViewInteraction) {
+        view?.handleCollectionViewInteraction(action: action)
     }
 }

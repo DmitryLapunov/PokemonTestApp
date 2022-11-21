@@ -39,6 +39,7 @@ extension PokemonListViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        presenter?.handleCollectionViewInteraction(action: .disable)
         let pokemonId = pokemons[indexPath.row].id
         presenter?.loadPokemonDetails(pokemonId: pokemonId)
     }

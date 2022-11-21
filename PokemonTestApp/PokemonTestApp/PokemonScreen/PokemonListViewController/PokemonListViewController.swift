@@ -28,6 +28,11 @@ final class PokemonListViewController: UIViewController {
         presenter?.loadPokemonData()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        presenter?.handleCollectionViewInteraction(action: .enable)
+    }
+    
     // MARK: - Init methods
     
     init() {

@@ -13,6 +13,7 @@ protocol PokemonListViewProtocol: AnyObject {
     func wipeOutdatedPokemonData()
     func stopRefreshing()
     func presentPokemonDetails(pokemonDetails: PokemonDetailsStructure)
+    func handleCollectionViewInteraction(action: CollectionViewInteraction)
 }
 
 extension PokemonListViewController: PokemonListViewProtocol {
@@ -42,5 +43,9 @@ extension PokemonListViewController: PokemonListViewProtocol {
         let pokemonDetailsBuilder = PokemonDetailsBuilder()
         let pokemonDetailsViewController = pokemonDetailsBuilder.build(pokemonDetails: pokemonDetails)
         navigationController?.pushViewController(pokemonDetailsViewController, animated: true)
+    }
+    
+    func handleCollectionViewInteraction(action: CollectionViewInteraction) {
+        controllerView.collectionView.isUserInteractionEnabled = action.interactionState
     }
 }
