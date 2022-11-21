@@ -49,10 +49,10 @@ final class PokemonDetailsView: UIView {
     }
     
     private lazy var statsStackView = UIStackView().then {
-        $0.axis = .horizontal
-        $0.distribution = .fillEqually
         $0.alignment = .fill
+        $0.distribution = .fillEqually
         $0.spacing = Constants.StackView.basicSpacing
+        $0.axis = .horizontal
     }
     
     private lazy var weightView = UIView().then {
@@ -125,62 +125,63 @@ final class PokemonDetailsView: UIView {
     }
     
     private func setConstraints() {
-        scrollView.snp.makeConstraints {
+        scrollView.snp.updateConstraints {
             $0.edges.equalToSuperview()
         }
         
-        stackView.snp.makeConstraints {
+        stackView.snp.updateConstraints {
             $0.edges.equalToSuperview()
             $0.width.equalTo(self.snp.width)
         }
         
-        pokemonImageView.snp.makeConstraints {
+        pokemonImageView.snp.updateConstraints {
             $0.top.equalToSuperview().offset(Constants.TopConstraint.half)
             $0.width.equalTo(Constants.PokemonDetailsView.pokemonImageViewWidth)
             $0.height.equalTo(Constants.PokemonDetailsView.pokemonImageViewHeight)
             $0.leading.equalToSuperview().offset(Constants.LeadingConstraint.basic)
         }
         
-        pokemonIdLabel.snp.makeConstraints {
+        pokemonIdLabel.snp.updateConstraints {
             $0.top.equalTo(pokemonImageView.snp.top)
             $0.leading.equalTo(pokemonImageView.snp.trailing).offset(Constants.LeadingConstraint.half)
             $0.trailing.equalToSuperview().inset(Constants.TrailingConstraint.basic)
         }
         
-        pokemonNameLabel.snp.makeConstraints {
+        pokemonNameLabel.snp.updateConstraints {
             $0.top.equalTo(pokemonIdLabel.snp.bottom)
             $0.leading.equalTo(pokemonImageView.snp.trailing).offset(Constants.LeadingConstraint.half)
             $0.trailing.equalToSuperview().inset(Constants.TrailingConstraint.basic)
         }
         
-        statsStackView.snp.makeConstraints {
+        statsStackView.snp.updateConstraints {
             $0.top.equalTo(pokemonImageView.snp.bottom).offset(Constants.TopConstraint.basic)
             $0.leading.equalToSuperview().offset(Constants.LeadingConstraint.basic)
             $0.trailing.equalToSuperview().inset(Constants.TrailingConstraint.basic)
+            $0.bottom.equalToSuperview()
         }
         
-        weightImageView.snp.makeConstraints {
+        weightImageView.snp.updateConstraints {
             $0.height.equalTo(Constants.PokemonDetailsView.pokemonInfoImageViewHeight)
             $0.width.equalTo(Constants.PokemonDetailsView.pokemonInfoImageViewWidth)
             $0.top.equalToSuperview().offset(Constants.TopConstraint.half)
             $0.centerX.equalToSuperview()
         }
         
-        weightLabel.snp.makeConstraints {
+        weightLabel.snp.updateConstraints {
             $0.top.equalTo(weightImageView.snp.bottom).offset(Constants.TopConstraint.quarter)
             $0.leading.equalToSuperview().offset(Constants.LeadingConstraint.half)
             $0.trailing.equalToSuperview().inset(Constants.TrailingConstraint.half)
             $0.bottom.equalToSuperview().inset(Constants.BottomConstraint.half)
         }
         
-        heightImageView.snp.makeConstraints {
+        heightImageView.snp.updateConstraints {
             $0.height.equalTo(Constants.PokemonDetailsView.pokemonInfoImageViewHeight)
             $0.width.equalTo(Constants.PokemonDetailsView.pokemonInfoImageViewWidth)
             $0.top.equalToSuperview().offset(Constants.TopConstraint.half)
             $0.centerX.equalToSuperview()
         }
         
-        heightLabel.snp.makeConstraints {
+        heightLabel.snp.updateConstraints {
             $0.top.equalTo(heightImageView.snp.bottom).offset(Constants.TopConstraint.quarter)
             $0.leading.equalToSuperview().offset(Constants.LeadingConstraint.half)
             $0.trailing.equalToSuperview().inset(Constants.TrailingConstraint.half)
@@ -193,17 +194,17 @@ final class PokemonDetailsView: UIView {
         types.forEach {
             let type = $0
             if let pokemonType = PokemonOfficialTypes(rawValue: type) {
-                let typeView = UIView().then {
-                    $0.backgroundColor = pokemonType.typeColor
-                    $0.layer.cornerRadius = Constants.Corner.smallRadius
-                }
-                let typeLabel = UILabel().then {
-                    $0.text = pokemonType.rawValue.uppercased()
-                    $0.textColor = Colors.PokemonDetailsView.typeLabel
-                    $0.font = Fonts.PokemonDetailsView.typeLabel
-                }
+                let typeLabel = UILabel()
+                typeLabel.text = pokemonType.rawValue.uppercased()
+                typeLabel.textColor = Colors.PokemonDetailsView.typeLabel
+                typeLabel.font = Fonts.PokemonDetailsView.typeLabel
+                
+                let typeView = UIView()
+                typeView.backgroundColor = pokemonType.typeColor
+                typeView.layer.cornerRadius = Constants.Corner.smallRadius
                 typeView.addSubview(typeLabel)
-                typeLabel.snp.makeConstraints {
+                
+                typeLabel.snp.updateConstraints {
                     $0.top.equalToSuperview().offset(Constants.TopConstraint.eighth)
                     $0.leading.equalToSuperview().offset(Constants.LeadingConstraint.quarter)
                     $0.trailing.equalToSuperview().inset(Constants.TrailingConstraint.quarter)
@@ -219,7 +220,7 @@ final class PokemonDetailsView: UIView {
             $0.spacing = Constants.StackView.quarterSpacing
         }
         contentView.addSubview(typeStackView)
-        typeStackView.snp.makeConstraints {
+        typeStackView.snp.updateConstraints {
             $0.top.equalTo(pokemonNameLabel.snp.bottom).offset(Constants.TopConstraint.eighth)
             $0.leading.equalTo(pokemonImageView.snp.trailing).offset(Constants.LeadingConstraint.half)
         }

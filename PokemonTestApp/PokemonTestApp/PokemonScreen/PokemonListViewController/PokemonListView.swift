@@ -59,7 +59,7 @@ final class PokemonListView: UIView {
     }
     
     private func setConstraints() {
-        collectionView.snp.makeConstraints {
+        collectionView.snp.updateConstraints {
             $0.edges.equalToSuperview()
         }
     }

@@ -85,30 +85,30 @@ final class PokemonListCell: UICollectionViewCell {
     }
     
     private func setConstraints() {
-        cellBackgroundView.snp.makeConstraints {
+        cellBackgroundView.snp.updateConstraints {
             $0.edges.equalToSuperview()
         }
         
-        pokeballOutlineImageView.snp.makeConstraints {
+        pokeballOutlineImageView.snp.updateConstraints {
             $0.top.equalToSuperview()
             $0.trailing.equalToSuperview()
             $0.bottom.equalToSuperview()
             $0.width.equalTo(Constants.PokemonListCell.pokeballOutlineImageViewWidth)
         }
         
-        pokeballIconImageView.snp.makeConstraints {
+        pokeballIconImageView.snp.updateConstraints {
             $0.centerY.equalToSuperview()
             $0.width.equalTo(Constants.PokemonListCell.pokeballIconImageViewWidth)
             $0.height.equalTo(Constants.PokemonListCell.pokeballIconImageViewHeight)
             $0.leading.equalToSuperview().offset(Constants.LeadingConstraint.half)
         }
         
-        pokemonLabel.snp.makeConstraints {
+        pokemonLabel.snp.updateConstraints {
             $0.centerY.equalToSuperview()
             $0.leading.equalToSuperview().offset(Constants.LeadingConstraint.double)
         }
         
-        arrowImageView.snp.makeConstraints {
+        arrowImageView.snp.updateConstraints {
             $0.centerY.equalToSuperview()
             $0.width.equalTo(Constants.PokemonListCell.arrowImageViewWidth)
             $0.height.equalTo(Constants.PokemonListCell.arrowImageViewHeight)
