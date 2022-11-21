@@ -9,7 +9,7 @@ import Foundation
 
 extension String {
     
-    // MARK: - Method to format raw String network output into a readable String
+    /// Method to format raw String network output into a readable String
     
     func formatNetworkOutput() -> String {
         guard self.contains("-") else { return self.capitalized }

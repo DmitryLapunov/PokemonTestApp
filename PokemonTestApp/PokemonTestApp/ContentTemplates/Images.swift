@@ -19,8 +19,4 @@ enum Images {
         static let scalemass = UIImage(systemName: "scalemass")
         static let pencilAndRuler = UIImage(systemName: "pencil.and.ruler")
     }
-    
-    enum CustomToast {
-        static let error = UIImage(systemName: "xmark")
-    }
 }

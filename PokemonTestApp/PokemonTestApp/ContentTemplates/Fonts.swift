@@ -18,8 +18,4 @@ enum Fonts {
         static let pokemonDetails = UIFont.systemFont(ofSize: 18, weight: .semibold)
         static let typeLabel = UIFont.systemFont(ofSize: 14, weight: .semibold)
     }
-    
-    enum CustomToast {
-        static let label = UIFont.systemFont(ofSize: 16, weight: .regular)
-    }
 }

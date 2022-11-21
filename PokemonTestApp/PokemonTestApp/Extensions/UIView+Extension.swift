@@ -9,7 +9,7 @@ import UIKit
 
 extension UIView {
     
-    // MARK: - Method to programmatically assign UIView corner, border, and shadow properties
+    /// Method to programmatically assign UIView corner, border, and shadow properties
     
     func addBorderAndShadow(borderColor: CGColor, shadowColor: CGColor) {
         self.layer.cornerRadius = Constants.Corner.basicRadius
