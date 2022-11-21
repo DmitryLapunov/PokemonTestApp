@@ -39,12 +39,12 @@ final class CoreDataManager: CoreDataManagerProtocol {
         do {
             let fetchedPokemons = try managedContext.fetch(fetchRequest)
             if let fetchedPokemon = fetchedPokemons.first {
-                pokemon = PokemonDetailsStructure(id: fetchedPokemon.value(forKey: "id") as! Int,
-                                                  name: fetchedPokemon.value(forKey: "name") as! String,
-                                                  imageUrl: fetchedPokemon.value(forKey: "imageUrl") as! String,
-                                                  height: fetchedPokemon.value(forKey: "height") as! Int,
-                                                  weight: fetchedPokemon.value(forKey: "weight") as! Double,
-                                                  types: fetchedPokemon.value(forKey: "types") as! [String])
+                pokemon = PokemonDetailsStructure(id: fetchedPokemon.value(forKey: "id") as? Int ?? 0,
+                                                  name: fetchedPokemon.value(forKey: "name") as? String ?? "",
+                                                  imageUrl: fetchedPokemon.value(forKey: "imageUrl") as? String ?? "",
+                                                  height: fetchedPokemon.value(forKey: "height") as? Int ?? 0,
+                                                  weight: fetchedPokemon.value(forKey: "weight") as? Double ?? 0.0,
+                                                  types: fetchedPokemon.value(forKey: "types") as? [String] ?? [])
             }
         } catch let error {
             alertManager.createAlert(message: error.localizedDescription)
@@ -54,7 +54,7 @@ final class CoreDataManager: CoreDataManagerProtocol {
     
     func savePokemonDetails(details: PokemonDetailsStructure) {
         let managedContext = persistentContainer.viewContext
-        let entity = NSEntityDescription.entity(forEntityName: Contents.CoreData.pokemonDetailsEntity, in: managedContext)!
+        guard let entity = NSEntityDescription.entity(forEntityName: Contents.CoreData.pokemonDetailsEntity, in: managedContext) else { return }
         let pokemonEntity = NSManagedObject(entity: entity, insertInto: managedContext)
         
         pokemonEntity.setValue(details.id, forKey: "id")
@@ -81,8 +81,8 @@ final class CoreDataManager: CoreDataManagerProtocol {
         do {
             let fetchedPokemons = try managedContext.fetch(fetchRequest)
             pokemons = fetchedPokemons.map {
-                PokemonModel(name: $0.value(forKey: "name") as! String,
-                             url: $0.value(forKey: "url") as! String) }
+                PokemonModel(name: $0.value(forKey: "name") as? String ?? "",
+                             url: $0.value(forKey: "url") as? String ?? "") }
         } catch let error {
             alertManager.createAlert(message: error.localizedDescription)
         }
@@ -91,7 +91,7 @@ final class CoreDataManager: CoreDataManagerProtocol {
     
     func savePokemonData(pokemon: PokemonModel, dataCategory: String) {
         let managedContext = persistentContainer.viewContext
-        let entity = NSEntityDescription.entity(forEntityName: Contents.CoreData.pokemonEntity, in: managedContext)!
+        guard let entity = NSEntityDescription.entity(forEntityName: Contents.CoreData.pokemonEntity, in: managedContext) else { return }
         let pokemonEntity = NSManagedObject(entity: entity, insertInto: managedContext)
         
         pokemonEntity.setValue(pokemon.name, forKey: "name")

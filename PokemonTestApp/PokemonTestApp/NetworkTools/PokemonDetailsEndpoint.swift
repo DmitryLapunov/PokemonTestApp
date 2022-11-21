@@ -34,7 +34,7 @@ final class PokemonDetailsEndpoint: EndpointProtocol {
     }
     
     convenience init(pokemonId: String) {
-        self.init(url: URL(string: Contents.Networking.pokemonApiUrl)!,
+        self.init(url: URL(string: Contents.Networking.pokemonApiUrl) ?? URL(fileURLWithPath: ""),
                   method: .get,
                   path: "",
                   encoding: URLEncoding.queryString,
