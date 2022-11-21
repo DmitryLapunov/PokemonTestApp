@@ -22,7 +22,7 @@ final class PokemonListView: UIView {
         $0.minimumLineSpacing = Constants.CollectionView.halfSpacing
     }
     
-    private let refreshControl = UIRefreshControl().then {
+    private lazy var refreshControl = UIRefreshControl().then {
         $0.addTarget(self, action: #selector(refreshCollectionView), for: .valueChanged)
         $0.tintColor = Colors.PokemonListView.refreshControlTint
     }
