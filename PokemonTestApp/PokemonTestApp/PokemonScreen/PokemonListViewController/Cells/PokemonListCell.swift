@@ -17,29 +17,29 @@ final class PokemonListCell: UICollectionViewCell {
     
     // MARK: - UI elements
     
-    private let cellBackgroundView = UIView().then {
+    private lazy var cellBackgroundView = UIView().then {
         $0.clipsToBounds = true
         $0.backgroundColor = Colors.PokemonListCell.cellBackground
     }
     
-    private let pokeballOutlineImageView = UIImageView().then {
+    private lazy var pokeballOutlineImageView = UIImageView().then {
         $0.contentMode = .scaleAspectFill
         $0.image = Images.PokemonListCell.pokeballOutline
         $0.alpha = Constants.View.transparentAlpha
         $0.clipsToBounds = true
     }
     
-    private let pokeballIconImageView = UIImageView().then {
+    private lazy var pokeballIconImageView = UIImageView().then {
         $0.contentMode = .scaleAspectFill
         $0.image = Images.PokemonListCell.pokeballIcon
     }
     
-    private let pokemonLabel = UILabel().then {
+    private lazy var pokemonLabel = UILabel().then {
         $0.font = Fonts.PokemonListCell.pokemonName
         $0.textColor = Colors.PokemonListCell.pokemonName
     }
     
-    private let arrowImageView = UIImageView().then {
+    private lazy var arrowImageView = UIImageView().then {
         $0.contentMode = .scaleAspectFill
         $0.tintColor = Colors.PokemonListCell.chevron
         $0.image = Images.PokemonListCell.chevronRight

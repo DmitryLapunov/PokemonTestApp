@@ -14,11 +14,11 @@ final class PokemonDetailsView: UIView {
     
     // MARK: - UI elements
     
-    private let scrollView = UIScrollView().then {
+    private lazy var scrollView = UIScrollView().then {
         $0.showsVerticalScrollIndicator = false
     }
     
-    private let stackView = UIStackView().then {
+    private lazy var stackView = UIStackView().then {
         $0.alignment = .fill
         $0.distribution = .fill
         $0.spacing = Constants.StackView.zeroSpacing
@@ -27,66 +27,66 @@ final class PokemonDetailsView: UIView {
     
     private let contentView = UIView()
     
-    private let pokemonImageView = UIImageView().then {
+    private lazy var pokemonImageView = UIImageView().then {
         $0.contentMode = .scaleAspectFit
         $0.clipsToBounds = true
         $0.backgroundColor = Colors.PokemonDetailsView.imageViewBackground
         $0.tintColor = Colors.PokemonDetailsView.imageViewTint
     }
     
-    private let pokemonIdLabel = UILabel().then {
+    private lazy var pokemonIdLabel = UILabel().then {
         $0.textAlignment = .left
         $0.numberOfLines = Constants.Label.singleLine
         $0.textColor = Colors.PokemonDetailsView.pokemonId
         $0.font = Fonts.PokemonDetailsView.pokemonId
     }
     
-    private let pokemonNameLabel = UILabel().then {
+    private lazy var pokemonNameLabel = UILabel().then {
         $0.textAlignment = .left
         $0.numberOfLines = Constants.Label.singleLine
         $0.textColor = Colors.PokemonDetailsView.pokemonName
         $0.font = Fonts.PokemonDetailsView.pokemonName
     }
     
-    private let statsStackView = UIStackView().then {
+    private lazy var statsStackView = UIStackView().then {
         $0.axis = .horizontal
         $0.distribution = .fillEqually
         $0.alignment = .fill
         $0.spacing = Constants.StackView.basicSpacing
     }
     
-    private let weightView = UIView().then {
+    private lazy var weightView = UIView().then {
         $0.backgroundColor = Colors.PokemonDetailsView.infoViewBackground
         $0.addBorderAndShadow(borderColor: Colors.PokemonDetailsView.viewBorder,
                               shadowColor: Colors.PokemonDetailsView.viewShadow)
     }
     
-    private let weightImageView = UIImageView().then {
+    private lazy var weightImageView = UIImageView().then {
         $0.contentMode = .scaleAspectFill
         $0.tintColor = Colors.PokemonDetailsView.icon
         $0.image = Images.PokemonDetailsView.scalemass
     }
     
-    private let weightLabel = UILabel().then {
+    private lazy var weightLabel = UILabel().then {
         $0.textAlignment = .center
         $0.numberOfLines = Constants.Label.singleLine
         $0.textColor = Colors.PokemonDetailsView.pokemonDetails
         $0.font = Fonts.PokemonDetailsView.pokemonDetails
     }
     
-    private let heightView = UIView().then {
+    private lazy var heightView = UIView().then {
         $0.backgroundColor = Colors.PokemonDetailsView.infoViewBackground
         $0.addBorderAndShadow(borderColor: Colors.PokemonDetailsView.viewBorder,
                               shadowColor: Colors.PokemonDetailsView.viewShadow)
     }
     
-    private let heightImageView = UIImageView().then {
+    private lazy var heightImageView = UIImageView().then {
         $0.contentMode = .scaleAspectFill
         $0.tintColor = Colors.PokemonDetailsView.icon
         $0.image = Images.PokemonDetailsView.pencilAndRuler
     }
     
-    private let heightLabel = UILabel().then {
+    private lazy var heightLabel = UILabel().then {
         $0.textAlignment = .center
         $0.numberOfLines = Constants.Label.singleLine
         $0.textColor = Colors.PokemonDetailsView.pokemonDetails

@@ -17,7 +17,7 @@ final class PokemonListView: UIView {
     
     // MARK: - UI elements
     
-    private let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout.init().then {
+    private lazy var layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout.init().then {
         $0.scrollDirection = .vertical
         $0.minimumLineSpacing = Constants.CollectionView.halfSpacing
     }
@@ -27,7 +27,7 @@ final class PokemonListView: UIView {
         $0.tintColor = Colors.PokemonListView.refreshControlTint
     }
     
-    let collectionView: UICollectionView = UICollectionView(frame: CGRect.zero,
+    lazy var collectionView: UICollectionView = UICollectionView(frame: CGRect.zero,
                                                             collectionViewLayout: UICollectionViewFlowLayout.init()).then {
         $0.register(PokemonListCell.self, forCellWithReuseIdentifier: PokemonListCell.reuseIdentifier)
         $0.showsVerticalScrollIndicator = false
@@ -36,6 +36,8 @@ final class PokemonListView: UIView {
                                        bottom: CGFloat(Constants.BottomConstraint.half),
                                        right: CGFloat(Constants.TrailingConstraint.basic))
         $0.backgroundColor = Colors.PokemonListView.collectionViewBackground
+        $0.setCollectionViewLayout(layout, animated: true)
+        $0.refreshControl = refreshControl
     }
     
     // MARK: - Init methods
@@ -52,13 +54,7 @@ final class PokemonListView: UIView {
     
     // MARK: - UIView setup methods
     
-    private func setupCollectionView() {
-        collectionView.setCollectionViewLayout(layout, animated: true)
-        collectionView.refreshControl = refreshControl
-    }
-    
     private func setupSubviews() {
-        setupCollectionView()
         addSubview(collectionView)
     }
     
