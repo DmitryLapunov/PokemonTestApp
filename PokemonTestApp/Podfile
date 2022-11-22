@@ -11,3 +11,9 @@ target 'PokemonTestApp' do
   pod 'Alamofire'
 
 end
+
+target 'PokemonTestAppTests' do
+
+  pod 'Alamofire'
+
+end

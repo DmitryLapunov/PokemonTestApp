@@ -7,7 +7,7 @@
 
 import XCTest
 @testable import PokemonTestApp
-@testable import Alamofire
+import Alamofire
 
 final class TestingEndpoint: XCTestCase {
     
