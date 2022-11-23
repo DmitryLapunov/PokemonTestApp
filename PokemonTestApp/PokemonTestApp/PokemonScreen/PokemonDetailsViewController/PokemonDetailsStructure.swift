@@ -24,17 +24,12 @@ struct PokemonDetailsStructure {
         self.types = pokemonDetails.typesArray
     }
     
-    init(id: Int = 0,
-         name: String = "",
-         imageUrl: String = "",
-         height: Int = 0,
-         weight: Double = 0.0,
-         types: [String] = []) {
-        self.id = id
-        self.name = name
-        self.imageUrl = imageUrl
-        self.height = height
-        self.weight = weight
-        self.types = types
+    init(detailsCache: CachedPokemonDetailsListing) {
+        self.id = Int(truncatingIfNeeded: detailsCache.pokemonId)
+        self.name = detailsCache.name ?? ""
+        self.imageUrl = detailsCache.imageUrl ?? ""
+        self.height = Int(truncatingIfNeeded: detailsCache.pokemonId)
+        self.weight = detailsCache.weight
+        self.types = detailsCache.types ?? []
     }
 }

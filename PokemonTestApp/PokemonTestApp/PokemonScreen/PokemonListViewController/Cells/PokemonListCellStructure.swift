@@ -33,4 +33,9 @@ struct PokemonListCellStructure {
         self.name = pokemon.displayName
         self.id = pokemon.id
     }
+    
+    init(pokemonCache: CachedPokemonListing) {
+        self.name = pokemonCache.name?.formatNetworkOutput() ?? ""
+        self.id = UrlFormatter.getPathLastComponent(url: pokemonCache.url ?? "") ?? ""
+    }
 }

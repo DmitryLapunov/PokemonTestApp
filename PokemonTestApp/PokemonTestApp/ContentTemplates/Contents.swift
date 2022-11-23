@@ -10,12 +10,11 @@ import Foundation
 enum Contents {
     enum CoreData {
         static let persistentContainer = "PokemonTestApp"
-        static let pokemonEntity = "CachedPokemonListing"
-        static let pokemonDetailsEntity = "CachedPokemonDetailsListing"
     }
     
     enum BasicContent {
         static let dataCategory = "Pokemon"
+        static let unexpectedError = "An unexpected error occured"
     }
     
     enum Networking {
